@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Migrating to Jetpack Compose Incrementally | Akash Verma</title>
+<meta name="description" content="Step-by-step strategy for migrating legacy XML-based UIs to Jetpack Compose without rewriting everything. Interoperability patterns and lessons from 5 production apps.">
+<meta name="author" content="Akash Verma"><link rel="canonical" href="https://akashverma.dev/blog/jetpack-compose-migration/">
+<meta property="og:title" content="Migrating to Jetpack Compose | Akash Verma"><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css"></head>
+<body class="android-dark"><script src="../../js/shared.js"></script><script>injectNav('blog');</script>
+<header class="page-hero"><div class="page-hero-inner">
+<div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>Compose Migration</span></div>
+<span class="page-hero-badge">Jetpack Compose</span>
+<h1>Migrating to Jetpack Compose Incrementally</h1>
+<p class="page-hero-desc">A step-by-step strategy for migrating legacy XML-based UIs to Jetpack Compose without rewriting everything at once. Interoperability patterns, state management bridges, and lessons from migrating 5 production apps.</p>
+<div class="page-hero-meta"><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 min read</span></div>
+</div></header>
+
+<article class="article-wrap">
+  <h2>Why Incremental, Not Big Bang</h2>
+  <p>The most common Compose migration mistake is attempting a full rewrite. In my experience leading 5 production migrations, the incremental approach is the only one that works for apps with real users and active development teams. A big-bang rewrite means feature freeze, regression risk, and a painful merge conflict period that can stretch for months.</p>
+  <p>The incremental approach lets you ship Compose code to production within the first week, gain team experience gradually, and maintain velocity on feature work throughout the migration.</p>
+
+  <h2>Phase 1: New Screens in Compose</h2>
+  <p>The lowest-risk starting point is building all new screens in Compose while leaving existing screens untouched. This requires setting up Compose dependencies, configuring the theme to match your existing design system, and establishing a pattern for Compose screens to coexist with XML-based Activities and Fragments.</p>
+  <p>I use a <code>ComposeActivity</code> base class that provides the theme wrapper, error boundary, and analytics hooks that every screen needs. New features are built entirely in Compose from day one, giving the team hands-on experience without risking existing functionality.</p>
+
+  <h2>Phase 2: Island Migration</h2>
+  <p>Once the team is comfortable with Compose fundamentals, start replacing individual UI components within existing XML screens. <code>ComposeView</code> lets you embed Compose content inside any XML layout. Target high-churn components first — UI elements that change frequently are the ones that benefit most from Compose's declarative model and will generate the most time savings.</p>
+  <p>Common candidates for island migration:</p>
+  <ul>
+    <li>Bottom sheets and dialogs — self-contained UI with clear state boundaries</li>
+    <li>Settings screens — form-heavy UIs where Compose's state management shines</li>
+    <li>List item layouts — complex RecyclerView items can be replaced with Compose items using <code>ComposeView</code> in the ViewHolder</li>
+    <li>Custom views — complex Canvas-based custom views are often cleaner as Compose Canvas implementations</li>
+  </ul>
+
+  <h2>Phase 3: Navigation Bridge</h2>
+  <p>The trickiest part of incremental migration is navigation. Your app likely uses the Fragment-based Navigation Component, and Compose has its own NavHost. Running both simultaneously requires a bridge.</p>
+  <p>My approach: keep the Fragment Navigation Component as the top-level router. Each Fragment either contains XML layout or a full-screen <code>ComposeView</code>. This avoids the complexity of running two navigation systems simultaneously and preserves deep link handling, back stack behavior, and transition animations.</p>
+  <p>Eventually, when enough screens are Compose-only, you migrate the navigation itself — but this should be the last step, not the first.</p>
+
+  <h2>State Management Across the Boundary</h2>
+  <p>The biggest technical challenge is sharing state between Compose and XML parts of the screen. ViewModels with StateFlow provide the cleanest bridge — both XML views (via <code>lifecycleScope.launch { flow.collect {} }</code>) and Compose (via <code>collectAsStateWithLifecycle()</code>) can observe the same state source.</p>
+  <p>Avoid creating separate state management for Compose and XML portions of the same screen. One ViewModel, one source of truth, multiple observers.</p>
+
+  <h2>Lessons from 5 Migrations</h2>
+  <ul>
+    <li>Theme parity takes longer than you expect. Map every color, typography style, and shape from your XML theme to Compose MaterialTheme before writing any UI code</li>
+    <li>Preview functions are Compose's killer feature for migration velocity. Invest in comprehensive previews from day one</li>
+    <li>Do not migrate screens that are stable and rarely touched. The ROI is negative for code that nobody changes</li>
+    <li>Compose increases APK size initially (by 2-4MB for the runtime). This stabilizes and eventually decreases as you remove XML layouts and view binding code</li>
+    <li>Team training is the bottleneck, not technical complexity. Budget time for the mental model shift from imperative to declarative UI</li>
+  </ul>
+
+  <div class="tag-row"><span class="tag">ComposeView</span><span class="tag">State Hoisting</span><span class="tag">Navigation</span><span class="tag">Testing</span><span class="tag">MaterialTheme</span><span class="tag">Interop</span></div>
+</article>
+
+<div class="related-section"><h3 class="related-title">Related Posts</h3><div class="related-grid">
+<a href="../clean-architecture-android/" class="related-card"><span class="related-card-badge">Architecture</span><h4>Clean Architecture in Android: Beyond the Buzzword</h4></a>
+<a href="../flutter-vs-native/" class="related-card"><span class="related-card-badge">Flutter</span><h4>Flutter vs Native: When to Choose What</h4></a>
+</div></div>
+</body></html>

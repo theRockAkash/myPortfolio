@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Scaling BillNest to High-Volume Transactions | Akash Verma</title>
+<meta name="description" content="How I architected a secure, high-throughput FinTech platform handling AEPS, DMT, and multi-token wallet operations with sub-200ms latency.">
+<meta name="author" content="Akash Verma">
+<link rel="canonical" href="https://akashverma.dev/case-studies/billnest/">
+<meta property="og:title" content="Case Study: Scaling BillNest | Akash Verma">
+<meta property="og:description" content="Architecting a secure FinTech platform with sub-200ms transaction latency and 99.9% uptime.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css">
+</head>
+<body class="android-dark">
+
+<script src="../../js/shared.js"></script>
+<script>injectNav('case-studies');</script>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="../">Case Studies</a><span class="sep">/</span>
+      <span>BillNest</span>
+    </div>
+    <span class="page-hero-badge">FinTech</span>
+    <h1>Scaling BillNest to High-Volume Transactions</h1>
+    <p class="page-hero-desc">How I architected a secure, high-throughput FinTech platform handling AEPS, DMT, and multi-token wallet operations with sub-200ms latency across thousands of concurrent users.</p>
+    <div class="page-hero-meta">
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Android / Kotlin</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 min read</span>
+    </div>
+  </div>
+</header>
+
+<article class="article-wrap">
+  <div class="metrics-row">
+    <div class="metric"><span class="metric-val">&lt;200ms</span><span class="metric-key">Transaction Latency</span></div>
+    <div class="metric"><span class="metric-val">99.9%</span><span class="metric-key">Uptime</span></div>
+    <div class="metric"><span class="metric-val">35%</span><span class="metric-key">Fraud Reduction</span></div>
+    <div class="metric"><span class="metric-val">15K+</span><span class="metric-key">Daily Transactions</span></div>
+  </div>
+
+  <h2>The Challenge</h2>
+  <p>BillNest needed to evolve from a basic bill payment app into a full-fledged FinTech platform supporting AEPS (Aadhaar Enabled Payment System), DMT (Domestic Money Transfer), and secure multi-token wallet operations. The platform had to process thousands of financial transactions simultaneously while maintaining strict security compliance and real-time balance updates across multiple payment gateways.</p>
+  <p>The existing architecture suffered from three critical issues:</p>
+  <ul>
+    <li>Transaction latency exceeding 800ms under peak load, causing timeouts and failed payments</li>
+    <li>Monolithic codebase making it impossible to independently scale payment modules</li>
+    <li>Insufficient security measures for a platform handling sensitive financial data and biometric authentication</li>
+  </ul>
+
+  <h2>The Approach</h2>
+
+  <h3>Modular Clean Architecture</h3>
+  <p>I restructured the entire application using Clean Architecture with clearly separated layers. Each financial service (AEPS, DMT, Wallet) became an independent module with its own domain logic, data sources, and presentation layer. This allowed us to deploy and scale each service independently without risking cross-contamination of business logic.</p>
+  <p>The domain layer defined use cases like <code>ProcessAEPSTransaction</code>, <code>InitiateDMTTransfer</code>, and <code>ValidateWalletBalance</code> — each encapsulating a single responsibility. The data layer implemented repository interfaces with multiple data source strategies: remote API, local cache, and encrypted fallback storage for offline-capable operations.</p>
+
+  <h3>Performance Optimization Pipeline</h3>
+  <p>Reducing transaction latency from 800ms to under 200ms required a multi-pronged approach:</p>
+  <ul>
+    <li>Implemented connection pooling with OkHttp, reusing TCP connections across sequential API calls to eliminate handshake overhead</li>
+    <li>Introduced Kotlin Coroutines with structured concurrency for parallel gateway health checks and balance pre-fetching</li>
+    <li>Added a local transaction queue with Room database, allowing the UI to respond instantly while syncing with the server asynchronously</li>
+    <li>Implemented response caching with ETag validation for frequently accessed merchant and biller catalogs</li>
+  </ul>
+
+  <h3>Security Hardening</h3>
+  <p>For a FinTech platform processing real money, security is non-negotiable. I implemented a multi-layered defense strategy:</p>
+  <ul>
+    <li><strong>Root and tamper detection</strong> using SafetyNet Attestation API to prevent execution on compromised devices</li>
+    <li><strong>VPN and proxy detection</strong> to block transaction requests from anonymized network paths</li>
+    <li><strong>Certificate pinning</strong> with backup pins and graceful rotation strategy to prevent MITM attacks</li>
+    <li><strong>AES-256 encryption</strong> for all locally stored tokens, session data, and transaction receipts</li>
+    <li><strong>Emulator and debugger detection</strong> with runtime integrity checks that trigger silent alerts rather than hard blocks, feeding into our fraud analytics pipeline</li>
+  </ul>
+
+  <h2>Technical Architecture</h2>
+  <p>The final architecture followed a strict layered approach:</p>
+  <blockquote>Presentation (MVVM + Jetpack Compose) &rarr; Domain (Use Cases + Entities) &rarr; Data (Repositories + Data Sources) &rarr; Framework (Network + Database + Security)</blockquote>
+  <p>Each payment gateway integration was abstracted behind a <code>PaymentGateway</code> interface, enabling seamless switching between providers based on transaction type, amount threshold, and regional availability. The wallet module used a double-entry bookkeeping pattern to ensure transactional integrity — every debit had a corresponding credit entry, making reconciliation auditable and transparent.</p>
+
+  <h2>Results</h2>
+  <p>The re-architected BillNest platform delivered measurable impact:</p>
+  <ul>
+    <li>Transaction latency dropped from 800ms to under 200ms (75% reduction)</li>
+    <li>Platform uptime improved to 99.9%, up from 98.2%</li>
+    <li>Fraud incidents reduced by 35% within the first quarter of deploying the security hardening measures</li>
+    <li>The modular architecture enabled the team to ship new payment gateway integrations 3x faster</li>
+    <li>ANR rate dropped to near-zero through background process optimization and coroutine-based concurrency</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <p>Building BillNest reinforced a critical principle: in FinTech, architecture decisions are security decisions. Every shortcut in code organization creates a surface for fraud. The investment in Clean Architecture paid dividends not just in maintainability, but in making security audits faster and compliance reporting straightforward.</p>
+  <p>The performance work also taught me that latency optimization in payment apps is fundamentally different from consumer apps — users tolerate a 2-second feed load, but a 2-second payment confirmation creates genuine anxiety. Every millisecond matters when real money is on the line.</p>
+
+  <div class="tag-row">
+    <span class="tag">Kotlin</span><span class="tag">MVVM</span><span class="tag">Clean Architecture</span>
+    <span class="tag">Retrofit</span><span class="tag">Room</span><span class="tag">Coroutines</span>
+    <span class="tag">AES Encryption</span><span class="tag">SafetyNet</span><span class="tag">OkHttp</span>
+  </div>
+</article>
+
+<div class="related-section">
+  <h3 class="related-title">More Case Studies</h3>
+  <div class="related-grid">
+    <a href="../wow-fashions/" class="related-card">
+      <span class="related-card-badge">E-commerce</span>
+      <h4>Wow Fashions: Conquering the GCC Market</h4>
+    </a>
+    <a href="../performance-optimization/" class="related-card">
+      <span class="related-card-badge">Performance</span>
+      <h4>40% Bundle Reduction Across 15+ Apps</h4>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

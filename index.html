@@ -1,600 +1,3565 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta property="og:title" content="Akash's Portfolio" />
-      <meta property="og:type" content="portfolio" />
-      <meta property="og:image:width" content="1024" />
-      <meta property="og:image:height" content="585" />
-      <meta property="og:image:type" content="image/png" />
-      <meta property="og:url" content="https://akash.cloudemy.in/" />
-      <meta property="og:image" content="https://www.akash.cloudemy.in/img/social.png" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta property="og:description" content="I'm an Android Developer with 6+ years of experience, I love to create beautiful, functional and useful android apps." />
-      <meta property="article:modified_time" content="2023-12-01T09:31:55+00:00" />
-      <title>Akash's Portfolio</title>
-      <link rel="stylesheet" href="styles/styles.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-   </head>
-   <body class="main-content">
-      <header class="container header active--" id="home">
-         <div class="header-content">
-            <div class="left-header">
-               <div class="h-shape"></div>
-               <div class="image">
-                  <img src="img/hero.svg" class="dark" alt="">
-               </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akash Verma | Senior Android & Flutter Developer</title>
+    <meta
+      name="description"
+      content="Senior Android & Flutter Developer with 8+ years of experience shipping 25+ apps across FinTech, Crypto, and Enterprise. Expert in Kotlin, Jetpack Compose, Flutter, and Clean Architecture."
+    />
+    <meta
+      name="keywords"
+      content="Android Developer, Flutter Developer, Kotlin, Jetpack Compose, Mobile App Development, Lucknow, India"
+    />
+    <meta name="author" content="Akash Verma" />
+    <meta
+      property="og:title"
+      content="Akash Verma | Senior Android & Flutter Developer"
+    />
+    <meta
+      property="og:description"
+      content="8+ years building high-performance mobile applications. 25+ apps shipped. 99.3%+ crash-free sessions."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://akashverma.dev" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Akash Verma",
+        "jobTitle": "Senior Android & Flutter Developer",
+        "url": "https://akashverma.dev",
+        "email": "therockakash77@gmail.com",
+        "telephone": "+91-9616253555",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lucknow",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        },
+        "sameAs": [],
+        "knowsAbout": [
+          "Android Development",
+          "Flutter Development",
+          "Kotlin",
+          "Java",
+          "Dart",
+          "Jetpack Compose",
+          "Clean Architecture",
+          "FinTech",
+          "Mobile App Development"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Swami Vivekanand Subharti University",
+            "url": "https://subharti.org"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Sacred Heart Degree College"
+          }
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "RoundPay Technomedia PVT LTD"
+        },
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Senior Android Developer",
+          "skills": "Kotlin, Java, Flutter, Dart, Jetpack Compose, MVVM, Clean Architecture, Firebase, REST APIs"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Akash Verma's Technical Blog",
+        "itemListElement": [
+          {
+            "@type": "Article",
+            "position": 1,
+            "name": "Clean Architecture in Android: Beyond the Buzzword",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "Android Clean Architecture implementation"
+          },
+          {
+            "@type": "Article",
+            "position": 2,
+            "name": "The Cold Start Optimization Playbook",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "Android performance optimization"
+          },
+          {
+            "@type": "Article",
+            "position": 3,
+            "name": "Hardening Android Apps Against Fraud",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "Mobile app security"
+          },
+          {
+            "@type": "Article",
+            "position": 4,
+            "name": "Flutter vs Native: When to Choose What",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "Flutter vs Android native comparison"
+          },
+          {
+            "@type": "Article",
+            "position": 5,
+            "name": "Migrating to Jetpack Compose Incrementally",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "Jetpack Compose migration"
+          },
+          {
+            "@type": "Article",
+            "position": 6,
+            "name": "On-Device ML with TensorFlow Lite",
+            "author": { "@type": "Person", "name": "Akash Verma" },
+            "about": "TensorFlow Lite on Android"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══ RESET & BASE ═══ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        overflow-x: hidden;
+        transition:
+          background 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+          color 0.5s;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-family: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* ═══ CSS VARIABLES — Dark Android Default ═══ */
+      :root {
+        --primary: #3ddc84;
+        --primary-dim: #2bb36a;
+        --primary-glow: rgba(61, 220, 132, 0.14);
+        --secondary: #00bcd4;
+        --accent: #7c4dff;
+        --bg: #0b0d0f;
+        --bg-card: #131619;
+        --bg-elevated: #1a1d21;
+        --bg-glass: rgba(61, 220, 132, 0.03);
+        --text: #e4e8ec;
+        --text-muted: #8a929c;
+        --text-dim: #555e6a;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-hover: rgba(61, 220, 132, 0.22);
+        --gradient: linear-gradient(
+          135deg,
+          #3ddc84 0%,
+          #00e5a0 40%,
+          #00bcd4 100%
+        );
+        --gradient-accent: linear-gradient(135deg, #3ddc84, #7c4dff);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.35);
+        --shadow-glow: 0 0 80px rgba(61, 220, 132, 0.1);
+        --nav-bg: rgba(11, 13, 15, 0.8);
+        --watermark-opacity: 0.025;
+      }
+
+      /* ═══ THEME CLASSES ═══ */
+      body.android-dark {
+        --primary: #3ddc84;
+        --primary-dim: #2bb36a;
+        --primary-glow: rgba(61, 220, 132, 0.14);
+        --secondary: #00bcd4;
+        --accent: #7c4dff;
+        --bg: #0b0d0f;
+        --bg-card: #131619;
+        --bg-elevated: #1a1d21;
+        --bg-glass: rgba(61, 220, 132, 0.03);
+        --text: #e4e8ec;
+        --text-muted: #8a929c;
+        --text-dim: #555e6a;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-hover: rgba(61, 220, 132, 0.22);
+        --gradient: linear-gradient(
+          135deg,
+          #3ddc84 0%,
+          #00e5a0 40%,
+          #00bcd4 100%
+        );
+        --gradient-accent: linear-gradient(135deg, #3ddc84, #7c4dff);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.35);
+        --shadow-glow: 0 0 80px rgba(61, 220, 132, 0.1);
+        --nav-bg: rgba(11, 13, 15, 0.8);
+        --watermark-opacity: 0.025;
+      }
+
+      body.android-light {
+        --primary: #1a8a4a;
+        --primary-dim: #126b38;
+        --primary-glow: rgba(26, 138, 74, 0.1);
+        --secondary: #007c8a;
+        --accent: #5e35b1;
+        --bg: #f5f6f8;
+        --bg-card: #ffffff;
+        --bg-elevated: #eceef1;
+        --bg-glass: rgba(26, 138, 74, 0.03);
+        --text: #111820;
+        --text-muted: #4d5563;
+        --text-dim: #8a929e;
+        --border: rgba(0, 0, 0, 0.08);
+        --border-hover: rgba(26, 138, 74, 0.22);
+        --gradient: linear-gradient(
+          135deg,
+          #1a8a4a 0%,
+          #007c8a 40%,
+          #5e35b1 100%
+        );
+        --gradient-accent: linear-gradient(135deg, #1a8a4a, #5e35b1);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.06);
+        --shadow-glow: 0 0 60px rgba(26, 138, 74, 0.06);
+        --nav-bg: rgba(245, 246, 248, 0.85);
+        --watermark-opacity: 0.035;
+      }
+
+      body.flutter-dark {
+        --primary: #027dfd;
+        --primary-dim: #0260c4;
+        --primary-glow: rgba(2, 125, 253, 0.14);
+        --secondary: #13b9fd;
+        --accent: #54c5f8;
+        --bg: #0b0d10;
+        --bg-card: #131619;
+        --bg-elevated: #1a1d22;
+        --bg-glass: rgba(2, 125, 253, 0.03);
+        --text: #e4e8ed;
+        --text-muted: #8a92a0;
+        --text-dim: #555e6e;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-hover: rgba(2, 125, 253, 0.22);
+        --gradient: linear-gradient(
+          135deg,
+          #027dfd 0%,
+          #13b9fd 40%,
+          #54c5f8 100%
+        );
+        --gradient-accent: linear-gradient(135deg, #027dfd, #54c5f8);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.35);
+        --shadow-glow: 0 0 80px rgba(2, 125, 253, 0.1);
+        --nav-bg: rgba(11, 13, 16, 0.8);
+        --watermark-opacity: 0.025;
+      }
+
+      body.flutter-light {
+        --primary: #0553b1;
+        --primary-dim: #03396b;
+        --primary-glow: rgba(5, 83, 177, 0.1);
+        --secondary: #0288d1;
+        --accent: #13b9fd;
+        --bg: #f5f6f8;
+        --bg-card: #ffffff;
+        --bg-elevated: #eceef1;
+        --bg-glass: rgba(5, 83, 177, 0.03);
+        --text: #111820;
+        --text-muted: #4d5563;
+        --text-dim: #8a929e;
+        --border: rgba(0, 0, 0, 0.08);
+        --border-hover: rgba(5, 83, 177, 0.22);
+        --gradient: linear-gradient(
+          135deg,
+          #0553b1 0%,
+          #0288d1 40%,
+          #13b9fd 100%
+        );
+        --gradient-accent: linear-gradient(135deg, #0553b1, #13b9fd);
+        --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.06);
+        --shadow-glow: 0 0 60px rgba(5, 83, 177, 0.06);
+        --nav-bg: rgba(245, 246, 248, 0.85);
+        --watermark-opacity: 0.035;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      ::selection {
+        background: var(--primary-glow);
+        color: var(--text);
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+        opacity: 0.4;
+      }
+
+      /* ═══ CURSOR GLOW ═══ */
+      .cursor-glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--primary-glow) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s;
+        opacity: 0;
+      }
+
+      body:hover .cursor-glow {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .cursor-glow {
+          display: none;
+        }
+      }
+
+      /* ═══ NAV ═══ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 18px 28px;
+        background: transparent;
+        backdrop-filter: none;
+        border-bottom: 1px solid transparent;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav.scrolled {
+        padding: 12px 28px;
+        background: var(--nav-bg);
+        backdrop-filter: blur(24px) saturate(180%);
+        border-bottom-color: var(--border);
+      }
+
+      .nav-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        font-family: "Urbanist", sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition:
+          color 0.25s,
+          background 0.25s;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+        background: var(--bg-glass);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* Expertise Toggle */
+      .expertise-toggle {
+        display: flex;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        position: relative;
+      }
+
+      .expertise-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--text-dim);
+        transition: all 0.35s;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+      }
+
+      .expertise-btn.active {
+        color: var(--primary);
+      }
+
+      .expertise-btn + .expertise-btn {
+        border-left: 1px solid var(--border);
+      }
+
+      .expertise-slider {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: calc(50% - 2px);
+        height: calc(100% - 4px);
+        background: var(--bg-glass);
+        border: 1px solid var(--border-hover);
+        border-radius: 10px;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .expertise-toggle[data-active="flutter"] .expertise-slider {
+        transform: translateX(100%);
+      }
+
+      /* Theme toggle */
+      .theme-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        transition: all 0.3s;
+      }
+
+      .theme-btn:hover {
+        border-color: var(--border-hover);
+        color: var(--text);
+      }
+
+      .theme-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Mobile menu */
+      .mobile-menu-btn {
+        display: none;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+      }
+
+      .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .mobile-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .mobile-overlay a {
+        font-family: "Urbanist", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--text);
+        padding: 10px 32px;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .expertise-btn span.label {
+          display: none;
+        }
+      }
+
+      /* ═══ WATERMARK LOGO ═══ */
+      .watermark {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        bottom: -4%;
+        right: -2%;
+        width: 380px;
+        height: 380px;
+        transition: opacity 0.4s;
+      }
+
+      .watermark svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--primary);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .watermark svg.wm-active {
+        opacity: var(--watermark-opacity);
+      }
+
+      @media (max-width: 768px) {
+        .watermark {
+          width: 240px;
+          height: 240px;
+          bottom: -2%;
+          right: -4%;
+        }
+      }
+
+      /* ═══ HERO ═══ */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 140px 28px 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          var(--primary) 0.5px,
+          transparent 0
+        );
+        background-size: 48px 48px;
+        opacity: 0.03;
+      }
+
+      .hero-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      .hero-orb-1 {
+        width: 700px;
+        height: 700px;
+        top: -20%;
+        right: -15%;
+        background: var(--primary);
+      }
+
+      .hero-orb-2 {
+        width: 500px;
+        height: 500px;
+        bottom: -10%;
+        left: -10%;
+        background: var(--accent);
+      }
+
+      .hero-orb-3 {
+        width: 300px;
+        height: 300px;
+        top: 40%;
+        left: 30%;
+        background: var(--secondary);
+      }
+
+      .hero-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 8px 20px 8px 12px;
+        margin-bottom: 32px;
+      }
+
+      .hero-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        box-shadow: 0 0 16px var(--primary);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        50% {
+          opacity: 0.5;
+          transform: scale(1.3);
+        }
+      }
+
+      .hero-badge-text {
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .hero-name {
+        font-family: "Urbanist", sans-serif;
+        font-size: clamp(42px, 8vw, 88px);
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        color: var(--text);
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+
+      .hero-name .char {
+        display: inline-block;
+        transform: translateY(110%);
+        opacity: 0;
+      }
+
+      .hero-tagline {
+        font-family: "Urbanist", sans-serif;
+        font-size: clamp(18px, 3.2vw, 32px);
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 28px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        max-width: 700px;
+      }
+
+      .hero-tagline .word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero-desc {
+        font-size: clamp(15px, 1.8vw, 18px);
+        color: var(--text-muted);
+        line-height: 1.75;
+        max-width: 580px;
+        margin-bottom: 44px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gradient);
+        color: #fff;
+        font-family: "Urbanist", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 16px 32px;
+        border-radius: 14px;
+        box-shadow: 0 4px 24px var(--primary-glow);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.5s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 36px var(--primary-glow);
+      }
+
+      .btn-primary:hover::after {
+        transform: translateX(100%);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        color: var(--text);
+        font-family: "Urbanist", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 16px 32px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        transition: all 0.25s;
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--primary);
+        background: var(--bg-glass);
+      }
+
+      /* Stats Marquee */
+      .hero-stats {
+        display: flex;
+        gap: 0;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero-stat {
+        padding: 20px 36px;
+        position: relative;
+      }
+
+      .hero-stat + .hero-stat::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .hero-stat-num {
+        font-family: "Urbanist", sans-serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1;
+      }
+
+      .hero-stat-num .count {
+        display: inline-block;
+      }
+
+      .hero-stat-label {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+        margin-top: 6px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 600px) {
+        .hero-stats {
+          flex-wrap: wrap;
+        }
+
+        .hero-stat {
+          padding: 14px 24px;
+        }
+      }
+
+      /* ═══ SECTIONS ═══ */
+      .section {
+        padding: 120px 28px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        display: block;
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      .section-title {
+        font-family: "Urbanist", sans-serif;
+        font-size: clamp(30px, 5vw, 50px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--text);
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .section-line {
+        width: 60px;
+        height: 3px;
+        background: var(--gradient);
+        border-radius: 2px;
+        margin-bottom: 56px;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+
+      /* ═══ ABOUT / DUAL EXPERTISE ═══ */
+      .dual-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+        gap: 28px;
+      }
+
+      .dual-card {
+        padding: 36px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.4s,
+          box-shadow 0.4s,
+          transform 0.4s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .dual-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+
+      .dual-card.active {
+        border-color: var(--primary);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .dual-card.active .dual-card-bar {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+      .dual-card-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient);
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .dual-card-icon {
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .dual-card-icon svg {
+        width: 36px;
+        height: 36px;
+        fill: var(--primary);
+        transition: fill 0.3s;
+      }
+
+      .dual-card-years {
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary);
+        background: var(--primary-glow);
+        padding: 4px 12px;
+        border-radius: 8px;
+      }
+
+      .dual-card h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 14px;
+        color: var(--text);
+      }
+
+      .dual-card p {
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        margin-bottom: 22px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 8px;
+        background: var(--bg-elevated);
+        color: var(--text-dim);
+        border: 1px solid var(--border);
+        transition: all 0.25s;
+      }
+
+      .dual-card.active .tag {
+        background: var(--primary-glow);
+        color: var(--primary);
+        border-color: transparent;
+      }
+
+      /* ═══ PROJECTS ═══ */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+        gap: 28px;
+      }
+
+      .project-card {
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .project-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-card);
+      }
+
+      .project-header {
+        height: 160px;
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-elevated);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-header-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          var(--primary) 0.6px,
+          transparent 0.6px
+        );
+        background-size: 16px 16px;
+        opacity: 0.04;
+      }
+
+      .project-header-num {
+        font-family: "Urbanist", sans-serif;
+        font-size: 72px;
+        font-weight: 900;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.12;
+      }
+
+      .project-header-cat {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 8px;
+        background: var(--primary-glow);
+        color: var(--primary);
+        border: 1px solid var(--border);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      /* Animated border on hover */
+      .project-header::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gradient);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .project-card:hover .project-header::after {
+        transform: scaleX(1);
+      }
+
+      .project-body {
+        padding: 28px;
+      }
+
+      .project-body h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text);
+      }
+
+      .project-body p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        margin-bottom: 20px;
+      }
+
+      .project-stats {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+
+      .project-stat-val {
+        font-family: "Urbanist", sans-serif;
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .project-stat-key {
+        font-size: 11px;
+        color: var(--text-dim);
+        text-transform: capitalize;
+        margin-top: 2px;
+      }
+
+      /* More projects */
+      .more-projects-title {
+        font-family: "Urbanist", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-muted);
+        margin: 52px 0 24px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .more-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 16px;
+      }
+
+      .more-card {
+        padding: 22px 26px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .more-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+
+      .more-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+
+      .more-card h4 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .more-card-cat {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--text-dim);
+        background: var(--bg-elevated);
+        padding: 3px 10px;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+
+      .more-card p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      /* ═══ SKILLS ═══ */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 22px;
+      }
+
+      .skill-group {
+        padding: 28px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        transition: all 0.4s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .skill-group:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .skill-group h4 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+      }
+
+      .skill-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-item {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 10px;
+        background: var(--bg-elevated);
+        color: var(--text);
+        border: 1px solid var(--border);
+        transition: all 0.25s;
+        cursor: default;
+      }
+
+      .skill-item:hover {
+        background: var(--primary-glow);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* ═══ EXPERIENCE ═══ */
+      .timeline {
+        position: relative;
+        padding-left: 52px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, var(--primary), var(--border));
+      }
+
+      .timeline-item {
+        margin-bottom: 44px;
+        position: relative;
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -40px;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 3px solid var(--primary);
+        box-shadow: 0 0 0 5px var(--primary-glow);
+        z-index: 1;
+      }
+
+      .timeline-card {
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        transition: border-color 0.3s;
+      }
+
+      .timeline-card:hover {
+        border-color: var(--border-hover);
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .timeline-card h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
+      .timeline-company {
+        font-size: 15px;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .timeline-meta {
+        text-align: right;
+      }
+
+      .timeline-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+
+      .timeline-highlights {
+        margin-bottom: 18px;
+      }
+
+      .timeline-highlights li {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        padding: 3px 0 3px 16px;
+        position: relative;
+      }
+
+      .timeline-highlights li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      @media (max-width: 600px) {
+        .timeline {
+          padding-left: 36px;
+        }
+
+        .timeline::before {
+          left: 12px;
+        }
+
+        .timeline-dot {
+          left: -30px;
+        }
+      }
+
+      /* ═══ CASE STUDIES ═══ */
+      .case-studies-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .case-card {
+        padding: 36px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: border-color 0.3s;
+      }
+
+      .case-card:hover {
+        border-color: var(--border-hover);
+      }
+
+      .case-card-badge {
+        display: inline-block;
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--primary);
+        background: var(--primary-glow);
+        padding: 5px 14px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      .case-card h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+      }
+
+      .case-card-summary {
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.75;
+        margin-bottom: 24px;
+        max-width: 720px;
+      }
+
+      .case-card-metrics {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+        padding: 20px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .case-metric-val {
+        font-family: "Urbanist", sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary);
+        display: block;
+      }
+
+      .case-metric-key {
+        font-size: 12px;
+        color: var(--text-dim);
+        margin-top: 2px;
+        display: block;
+      }
+
+      .case-card-detail {
+        padding-top: 4px;
+      }
+
+      .case-card-detail h4 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+        margin: 18px 0 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .case-card-detail p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+
+      /* ═══ BLOG ═══ */
+      .blog-intro {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.8;
+        max-width: 640px;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+        gap: 22px;
+      }
+
+      .blog-card {
+        padding: 28px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        transition: all 0.4s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .blog-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+
+      .blog-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .blog-tag {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--primary);
+        background: var(--primary-glow);
+        padding: 4px 10px;
+        border-radius: 6px;
+      }
+
+      .blog-date {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+      }
+
+      .blog-card h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 10px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+
+      .blog-card p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+
+      .blog-card-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .blog-card-topics span {
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 6px;
+        background: var(--bg-elevated);
+        color: var(--text-dim);
+        border: 1px solid var(--border);
+      }
+
+      /* ═══ CONTACT ═══ */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+        gap: 36px;
+      }
+
+      .contact-info {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .contact-desc {
+        font-size: 17px;
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 36px;
+        max-width: 480px;
+      }
+
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 22px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        transition: all 0.3s;
+      }
+
+      .contact-item:hover {
+        border-color: var(--border-hover);
+      }
+
+      .contact-item-icon {
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+
+      .contact-item-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .contact-item-label {
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+
+      .contact-item-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .contact-social {
+        padding: 36px;
+        border-radius: 20px;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .contact-social h3 {
+        font-family: "Urbanist", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--text);
+      }
+
+      .contact-social > p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 28px;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 20px;
+        border-radius: 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        transition: all 0.3s;
+      }
+
+      .social-link:hover {
+        border-color: var(--border-hover);
+        transform: translateX(6px);
+      }
+
+      .social-link-icon {
+        flex-shrink: 0;
+      }
+
+      .social-link-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .social-link-info {
+        flex: 1;
+      }
+
+      .social-link-name {
+        font-family: "Urbanist", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .social-link-sub {
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+
+      .social-link-arrow svg {
+        width: 16px;
+        height: 16px;
+        color: var(--text-dim);
+      }
+
+      /* ═══ FOOTER ═══ */
+      .footer {
+        padding: 36px 28px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .footer p {
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      /* ═══ ANIMATIONS ═══ */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="android-dark">
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Dynamic Watermark (changes per section) -->
+    <div class="watermark" id="watermarkContainer">
+      <!-- Android robot -->
+      <svg id="wmAndroid" class="wm-active" viewBox="0 0 24 24">
+        <path
+          d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.12-1.1-3.99-2.77-5.08l.3.24zM10 5H9V4h1v1zm5 0h-1V4h1v1z"
+        />
+      </svg>
+      <!-- Flutter bird -->
+      <svg id="wmFlutter" viewBox="0 0 24 24">
+        <path
+          d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"
+        />
+      </svg>
+      <!-- Dual / Toggle icon (two arrows) -->
+      <svg id="wmDual" viewBox="0 0 24 24">
+        <path
+          d="M7.5 21.5L3 17l4.5-4.5 1.05 1.05L5.6 16.5H17v1.5H5.6l2.95 2.95-1.05 1.05zM16.5 11.5L21 7l-4.5-4.5-1.05 1.05L18.4 6.5H7V8h11.4l-2.95 2.95 1.05 1.05z"
+        />
+      </svg>
+      <!-- Code / Projects icon -->
+      <svg id="wmCode" viewBox="0 0 24 24">
+        <path
+          d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+        />
+      </svg>
+      <!-- Grid / Skills icon -->
+      <svg id="wmSkills" viewBox="0 0 24 24">
+        <path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zM13 3h8v8h-8V3zm0 10h8v8h-8v-8z" />
+      </svg>
+      <!-- Briefcase / Experience icon -->
+      <svg id="wmBriefcase" viewBox="0 0 24 24">
+        <path
+          d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"
+        />
+      </svg>
+      <!-- Chart / Case Studies icon -->
+      <svg id="wmChart" viewBox="0 0 24 24">
+        <path
+          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
+        />
+      </svg>
+      <!-- Pen / Blog icon -->
+      <svg id="wmBlog" viewBox="0 0 24 24">
+        <path
+          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+        />
+      </svg>
+      <!-- Mail / Contact icon -->
+      <svg id="wmContact" viewBox="0 0 24 24">
+        <path
+          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+        />
+      </svg>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay">
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#projects" onclick="closeMobile()">Projects</a>
+      <a href="#skills" onclick="closeMobile()">Skills</a>
+      <a href="#experience" onclick="closeMobile()">Experience</a>
+      <a href="#casestudies" onclick="closeMobile()">Case Studies</a>
+      <a href="#blog" onclick="closeMobile()">Blog</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">AV.</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-controls">
+          <div
+            class="expertise-toggle"
+            data-active="android"
+            id="expertiseToggle"
+          >
+            <div class="expertise-slider"></div>
+            <button
+              class="expertise-btn active"
+              data-expertise="android"
+              onclick="setExpertise('android')"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.12-1.1-3.99-2.77-5.08l.3.24zM10 5H9V4h1v1zm5 0h-1V4h1v1z"
+                />
+              </svg>
+              <span class="label">Android</span>
+            </button>
+            <button
+              class="expertise-btn"
+              data-expertise="flutter"
+              onclick="setExpertise('flutter')"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"
+                />
+              </svg>
+              <span class="label">Flutter</span>
+            </button>
+          </div>
+          <button
+            class="theme-btn"
+            id="themeBtn"
+            onclick="toggleTheme()"
+            aria-label="Toggle theme"
+          >
+            <svg
+              id="sunIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: none"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              id="moonIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            onclick="toggleMobile()"
+            aria-label="Menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span class="hero-badge-text" id="heroBadge">Android Specialist</span>
+        </div>
+        <h1 class="hero-name" id="heroName">Akash Verma</h1>
+        <p class="hero-tagline" id="heroTagline">
+          Architecting Pixel-Perfect Android Experiences
+        </p>
+        <p class="hero-desc" id="heroDesc">
+          8+ years building high-performance Android applications across
+          FinTech, Crypto, E-commerce, and Enterprise. 25+ apps shipped. 99.3%+
+          crash-free sessions.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">
+            Get in Touch
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="#projects" class="btn-secondary">
+            View Projects
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-stats" id="heroStats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">
+              <span class="count" data-target="8">0</span>+
             </div>
-            <div class="right-header">
-               <h1 class="name" style="font-size : 44px;">
-                  Hi, I'm <span>Akash Verma,</span>
-               </h1>
-               <h1  style="font-size : 34px;text-align:center;">
-                  An Android Developer.
-               </h1>
-               <p>
-                  I'm an Android Developer, I love to create beautiful, functional and useful android apps.
-               <hr/>
-               <br/>
-               Highly motivated and experienced Android developer with over 7+ years of experience in developing and deploying android mobile applications. Skilled in Java, Kotlin, JetPack Compose, Android SDK and Flutter, with a solid understanding of mobile architecture and design patterns. Proven ability to deliver
-               high-quality, stable, and user-friendly mobile applications. Strong problem-solving and communication skills.
-               </p>
-               <div class="btn-con">
-                  <a href="https://drive.google.com/file/d/1xyhSpYuGJGGiKlk1E8d1TQnDooldo6xY/view" class="main-btn">
-                  <span class="btn-text">Download CV</span>
-                  <span class="btn-icon"><i class="fas fa-download"></i></span>
-                  </a>
-               </div>
+            <div class="hero-stat-label">Years Exp</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">
+              <span class="count" data-target="25">0</span>+
             </div>
-         </div>
-      </header>
-      <main>
-         <section class="container about" id="about">
-            <div class="main-title">
-               <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
+            <div class="hero-stat-label">Apps Shipped</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">99.3%</div>
+            <div class="hero-stat-label">Crash-Free</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">
+              <span class="count" data-target="85">0</span>K+
             </div>
-            <div class="about-container">
-               <div class="left-about">
-                  <h4>Information About me</h4>
-                  <ul style="list-style-type:circle; " class="bullet">
-                     <li>Proficient in Java, Kotlin, Dart, Flutter and Android SDK</li>
-                     <li>Proficient in Flutter and Dart for cross-platform mobile app development</li>
-                     <li>Experience with third-party libraries like Retrofit, Glide, and Dagger</li>
-                     <li>Experience with Android Studio, Git, and Gradle</li>
-                     <li>Familiar with RESTful API integration, Material Design, and Firebase</li>
-                     <li>Strong understanding of mobile architecture and design patterns</li>
-                     <li>Experience with Android Jetpack, Android Architecture Components and Android KTX</li>
-                     <li>Experience with Firebase for user authentication, push notifications and real-time database.</li>
-                  </ul>
-                  <br/>
-                  <div class="btn-con">
-                     <a href="https://drive.google.com/file/d/1xyhSpYuGJGGiKlk1E8d1TQnDooldo6xY/view" class="main-btn">
-                     <span class="btn-text">Download CV</span>
-                     <span class="btn-icon"><i class="fas fa-download"></i></span>
-                     </a>
-                  </div>
-               </div>
-               <div class="right-about">
-                  <div class="about-item">
-                     <div class="abt-text">
-                        <p class="large-text">25+</p>
-                        <p class="small-text">Projects <br /> Completed</p>
-                     </div>
-                  </div>
-                  <div class="about-item">
-                     <div class="abt-text">
-                        <p class="large-text">7+</p>
-                        <p class="small-text">Years of <br /> experience</p>
-                     </div>
-                  </div>
-                  <div class="about-item">
-                     <div class="abt-text">
-                        <p class="large-text">14+</p>
-                        <p class="small-text">Happy <br /> Clients</p>
-                     </div>
-                  </div>
-                  <div class="about-item">
-                     <div class="abt-text">
-                        <p class="large-text">4.2 ★</p>
-                        <p class="small-text">Average <br /> Rating</p>
-                     </div>
-                  </div>
-               </div>
+            <div class="hero-stat-label" id="stat4Label">Downloads</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <span class="section-label">01 / About</span>
+        <h2 class="section-title">Dual Expertise</h2>
+        <div class="section-line"></div>
+        <div class="dual-cards">
+          <!-- Android Card -->
+          <article class="dual-card active" id="androidCard">
+            <div class="dual-card-bar"></div>
+            <div class="dual-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0012 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 006 7h12c0-2.12-1.1-3.99-2.77-5.08l.3.24zM10 5H9V4h1v1zm5 0h-1V4h1v1z"
+                />
+              </svg>
+              <span class="dual-card-years">8+ Years</span>
             </div>
-            <div class="about-stats">
-               <h4 class="stat-title">My Skills</h4>
-               <div class="progress-bars">
-                  <div class="progress-bar">
-                     <p class="prog-title">Android</p>
-                     <div class="progress-con">
-                        <p class="prog-text">90%</p>
-                        <div class="progress">
-                           <span class="html"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="progress-bar">
-                     <p class="prog-title">Google Firebase</p>
-                     <div class="progress-con">
-                        <p class="prog-text">95%</p>
-                        <div class="progress">
-                           <span class="react"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="progress-bar">
-                     <p class="prog-title">JAVA</p>
-                     <div class="progress-con">
-                        <p class="prog-text">85%</p>
-                        <div class="progress">
-                           <span class="css"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="progress-bar">
-                     <p class="prog-title">KOTLIN</p>
-                     <div class="progress-con">
-                        <p class="prog-text">85%</p>
-                        <div class="progress">
-                           <span class="js"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="progress-bar">
-                     <p class="prog-title">Compose</p>
-                     <div class="progress-con">
-                        <p class="prog-text">80%</p>
-                        <div class="progress">
-                           <span class="node"></span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="progress-bar">
-                     <p class="prog-title">Flutter</p>
-                     <div class="progress-con">
-                        <p class="prog-text">80%</p>
-                        <div class="progress">
-                           <span class="python"></span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <h4 class="stat-title">Work Experience</h4>
-            <div class="timeline">
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-briefcase"></i>
-                  </div>
-                  <p class="tl-duration">Dec, 2023 - Present</p>
-                  <h5>Senior Android Developer<span> - RoundPay</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     Developed Flutter apps for fintech and car auction platforms. For the fintech project, I implemented secure payment gateways and real-time transaction monitoring, enhancing the user experience and security. In the car auction app, I developed features for real-time bidding, vehicle listing, and auction management, significantly improving user engagement and platform efficiency.
-                  </p>
-               </div>
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-briefcase"></i>
-                  </div>
-                  <p class="tl-duration">May, 2023 - Dec, 2023</p>
-                  <h5>Android Developer<span> - Trivial Works Pvt Ltd</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     In the event ticket booking app project, I gained expertise in managing time zones across different countries.
-                     In the 2nd project, a skill-based quiz app,  I integrated a payment module and introduced new features, impacting 300,000+ downloads and engaging 50,000+ monthly users. 
-                  </p>
-               </div>
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-briefcase"></i>
-                  </div>
-                  <p class="tl-duration">Dec, 2022 - May 2023</p>
-                  <h5>Android Developer<span> - Skyview Smart Solutions</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     I got opportunity to develop an android app which uses AI Machine Learning Model to capture user feedback using device's in-built Camera.
-                  </p>
-               </div>
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-briefcase"></i>
-                  </div>
-                  <p class="tl-duration">July, 2018 - Nov, 2022</p>
-                  <h5>Android Developer<span> - Freelancer</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     Worked with a variety of clients to develop and deploy various mobile applications including apps with over 15000+ downloads and 4.2 ★ average rating.
-                  </p>
-               </div>
-            </div>
-            <h4 class="stat-title">Education</h4>
-            <div class="timeline">
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-graduation-cap"></i>
-                  </div>
-                  <p class="tl-duration">Aug, 2017 - Sep, 2020</p>
-                  <h5>MCA<span> - Subharti University, Meerut</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     GRADE: A
-                  </p>
-               </div>
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-graduation-cap"></i>
-                  </div>
-                  <p class="tl-duration">July, 2014 - June, 2017</p>
-                  <h5>BCA<span> - Sacred Heart Degree College, Sitapur</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     GRADE: A
-                  </p>
-               </div>
-            </div>
-            <h4 class="stat-title">Volunteering</h4>
-            <div class="timeline vol">
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-ribbon"></i>
-                  </div>
-                  <p class="tl-duration">Dec, 2023 - Present</p>
-                  <h5>Volunteer<span> - Google Developer Group, Lucknow</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     I am currently volunteering in managing audiences during various tech events and workshops organized by the Google Developer Group in Lucknow. My responsibilities include coordinating event logistics, facilitating speaker sessions, and engaging with participants to ensure a smooth and enriching experience.
-                  </p>
-               </div>
-               <div class="timeline-item">
-                  <div class="tl-icon">
-                     <i class="fas fa-ribbon"></i>
-                  </div>
-                  <p class="tl-duration">Jul, 2016 - Jun, 2017</p>
-                  <h5>National Service Scheme<span> - SACRED HEART DEGREE COLLEGE, SITAPUR</span></h5>
-                  <p style="font-size:medium;  text-align: justify;">
-                     I participated in various events like Poetry, Drama, theatre, Nukkad Natak focused on various social issues like women empowerment, education of girl child, environment protection, issues related to plastic use, etc. I have directed various nukkad natak for raising awareness about these issues.
-                  </p>
-               </div>
-            </div>
-         </section>
-         <section class="container" id="portfolio">
-            <div class="main-title">
-               <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
-            </div>
-            <p class="port-text" style="text-align:start">
-               My Portfolio includes a diverse range of applications, each designed to meet specific user needs and requirements. From food delivery apps to video recording apps, I have developed a variety of applications that showcase my proficiency in mobile application development. In addition, I have also created AI-based apps for capturing feedback and improving user experience.
-               </br></br>
-               Using the latest technologies and tools, I have built high-quality applications that are both user-friendly and efficient. Each app in my portfolio has been designed with a focus on usability, performance, and security, ensuring that users have a seamless and secure experience. With my Portfolio, I aim to demonstrate my skills and creativity as a mobile app developer and showcase my ability to deliver high-quality solutions that meet specific user needs.
+            <h3>Android Development</h3>
+            <p>
+              Deep expertise in Kotlin, Java, Jetpack Compose, and the entire
+              Android ecosystem. From FinTech to Crypto, from enterprise to
+              consumer apps — building performant, secure, and scalable mobile
+              solutions.
             </p>
-            <div class="blogs portfolios">
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://play-lh.googleusercontent.com/J58_Y7Pk4hH9UdAbPuPPMDMSaYA6JPyx40QdFVwuphc6Ql0L6F2DHGM2c0BFOCRkAIIH=w526-h296-rw" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.cloudemy.studio" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Cloudemy Studio- Record Lesson
-                     </h4>
-                     <div class="rating-and-stats">
-                        <div class="stat cus-divider">
-                           <div class="stat-number">
-                              4.5 <span class="fa fa-star checked"></span>
-                           </div>
-                           <div class="stat-label">350 reviews</div>
-                        </div>
-                        <div class="stat">
-                           <div class="stat-number">85K+</div>
-                           <div class="stat-label">Downloads</div>
-                        </div>
-                     </div>
-                     <p>
-Cloudemy Studio is an innovative educational video-making app designed to enhance teaching experiences. It allows educators to seamlessly record video lectures using images, PDFs, and PowerPoint presentations. The app features advanced drawing and annotation tools, customizable slide settings, noise cancellation, and supports video quality up to 4K.
-                  </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/6Tio4nIko8zO4wUnYsmdypWmUBf2QZz3ieSs8nXCGPojFhmtOOy2K5c7vKSZ0Lt6chk" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.creatorstools.drawtool" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Cloudemy Lecture Recorder app 
-                     </h4>
-                     <div class="rating-and-stats">
-                        <div class="stat cus-divider">
-                           <div class="stat-number">
-                              4.5 <span class="fa fa-star checked"></span>
-                           </div>
-                           <div class="stat-label">60 reviews</div>
-                        </div>
-                        <div class="stat">
-                           <div class="stat-number">20K+</div>
-                           <div class="stat-label">Downloads</div>
-                        </div>
-                     </div>
-                     <p>
-                        This app provides an easy way to record video lectures using image slides, pdfs or webpage slides. You can record your Presentation on Phone using this app. While recording video, you can turn on your camera and engage with your students or audience. You can set custom settings for Video.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/9QIpLFt9KgO8Nzq1GGppnKNYPswUNn3XnfcVPlvnB-sN07mtgB9x2D-ulWgSMkh3KLs" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.curiousminds.ytcreatorszone" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Social X App - Boost your Views 
-                     </h4>
-                     <div class="rating-and-stats">
-                        <div class="stat cus-divider">
-                           <div class="stat-number">
-                              4.1 <span class="fa fa-star checked"></span>
-                           </div>
-                           <div class="stat-label">148 reviews</div>
-                        </div>
-                        <div class="stat">
-                           <div class="stat-number">20K+</div>
-                           <div class="stat-label">Downloads</div>
-                        </div>
-                     </div>
-                     <p>
-                        It creates a community for youtubers to introduce their own channels and videos to everyone all over the world.  Since many users will watch your video, you will receive real views, likes and subscribers from real users. You can grow your subscriber base by using Social X app.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/AGycp0mIUGLupoNvZC9zCEa9CjE8_5WmJzua919Y824ooScZWQ_fxXfwUj84ErjZX14" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.skyviewads.feedback" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Survey gesture - Feedback App
-                     </h4>
-                     <p>
-                        It uses AI and Machine Learning model to build a smart feedback collection system. Uses can submit their feedback using hand gestures like ✌️,🤘, 🤞, etc. It has been designed in such a way that users don't need to touch screen considering ongoing COVID-19 pandemic.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/j7n_JVyJ_ShUceWJ4m653QPTPmNThw1nRjgQHqzeVGo-x3Fa0jCBsJmfbIX7tpwcHGc" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.creatorstools.cloudemy_learning_app" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Cloudemy Quiz app for IAS/PCS Exams 
-                     </h4>
-                     <p>
-                        An app for simplifying UPSC CSE or State PCS Prelims Exam Preparation through Mock Test, Quiz, Test Series, Practice Sets related to various subjects in Hindi and English languages. Practice Sets or Quizzes are available for Economics, Polity, Geography, History, Science, etc.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/j-pQBJwlhWON7WeakH3cy2ZuJb8PU3UioURMxS_UwLBD7dUgRo512WPrPdCeQrpeWwg" alt="">
-                     </div>
-                     <div class="hover-items">
-                        <h3>Project Links</h3>
-                        <div class="icons">
-                           <a target="_blank" href="https://play.google.com/store/apps/details?	id=com.foodcourt.buyer" class="icon">
-                           <i class="fab fa-google-play"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Food Court - Order Food Online
-                     </h4>
-                     <p>
-                        Users can order food from nearby cafes or restaurants in this app and can either get their order delivered or they can visit restaurant and  pickup their order. Project contains two apps, one for customers and one for vendors. Vendors can register in this app and start accepting orders.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/trip-bike-c9166.appspot.com/o/HeroHomepage_2880x1200.jpg?alt=media&token=d0275f6e-2a97-4869-a750-0e842636e9bb" alt="">
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        CSE Circle app - Live Quiz App
-                     </h4>
-                     <p>
-                        This app provides a Live Test feature where Test starts at a fixed time for every student. After 2 hours are elapsed, test will be submitted automatically and report card will be generated. Admins can also see report of marks scored by all the students.
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://lh3.googleusercontent.com/zdOSXoCYFM5e6127gFtT6e1DvroXmXHAv9CU5ycoVV1XL2Hex_jvLl_W_q9kawyWuSA" alt="">
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Creators Zone App
-                     </h4>
-                     <p>
-                        It is a social media content sharing app, in this app, users can share their content like YouTube videos, posts, etc to reach new audience and build a subscriber base for their channel. Users can also react on other's content based on their interests, location, watch history, etc
-                     </p>
-                  </div>
-               </div>
-               <div class="blog">
-                  <div class="portfolio-item">
-                     <div class="image">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/trip-bike-c9166.appspot.com/o/HeroHomepage_2880x1200.jpg?alt=media&token=d0275f6e-2a97-4869-a750-0e842636e9bb" alt="">
-                     </div>
-                  </div>
-                  <div class="blog-text">
-                     <h4>
-                        Groot Wallet App
-                     </h4>
-                     <p>
-                        It is a referral and rewards app for users. They can earn real money using this app. They can complete task given in this app for earning real money. There are different tasks such as watching videos, playing games, downloading apps, answering surveys, etc.
-                     </p>
-                  </div>
-               </div>
+            <div class="tag-row">
+              <span class="tag">Kotlin</span><span class="tag">Java</span
+              ><span class="tag">Jetpack Compose</span
+              ><span class="tag">Material 3</span><span class="tag">MVVM</span>
             </div>
-         </section>
-         <section class="container" id="blogs">
-            <div class="blogs-content">
-               <div class="main-title">
-                  <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
-               </div>
-               <div class="blogs">
-                  <div class="blog">
-                     <!--<img src="img/port6.jpg" alt=""> -->
-                     <div class="blog-text">
-                        <h4>
-                           How to Create Your Own Website
-                        </h4>
-                        <p>
-                           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                           Doloribus natus voluptas, eos obcaecati recusandae amet?
-                        </p>
-                     </div>
-                  </div>
-               </div>
+          </article>
+          <!-- Flutter Card -->
+          <article class="dual-card" id="flutterCard">
+            <div class="dual-card-bar"></div>
+            <div class="dual-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"
+                />
+              </svg>
+              <span class="dual-card-years">4+ Years</span>
             </div>
-         </section>
-         <section class="container contact" id="contact">
-            <div class="contact-container">
-               <div class="main-title">
-                  <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
-               </div>
-               <div class="contact-content-con">
-                  <div class="left-contact">
-                     <h4>Contact me here</h4>
-                     <p>
-                        Hey there. I hope you find my profile interesting, Thank you for your time and consideration. I look forward to discussing my qualifications further and how they align with your company’s goals, please reach me out through any of the medium given below.
-                     </p>
-                     <div class="contact-info">
-                        <div class="contact-item">
-                           <div class="icon">
-                              <i class="fas fa-map-marker-alt"></i>
-                              <span>Location: </span>
-                           </div>
-                           <p>Lucknow, Uttar Pradesh, India
-                           </p>
-                        </div>
-                        <div class="contact-item">
-                           <div class="icon">
-                              <i class="fas fa-envelope"></i>
-                              <span>Email:</span>
-                           </div>
-                           <p>
-                              <span>therockakash77@gmail.com</span>
-                           </p>
-                        </div>
-                        <div class="contact-item">
-                           <div class="icon">
-                              <i class="fas fa-user-graduate"></i>
-                              <span>Education: </span>
-                           </div>
-                           <p>
-                              <span>MCA (Subharti University, Meerut)</span>
-                           </p>
-                        </div>
-                        
-                        <div class="contact-item">
-                           <div class="icon">
-                              <i class="fas fa-globe-africa"></i>
-                              <span>Languages:</span>
-                           </div>
-                           <p>
-                              <span>Hindi, English, Spanish</span>
-                           </p>
-                        </div>
-                     </div>
-                     <div class="contact-icons">
-                        <div class="contact-icon">
-                           <a href="https://www.instagram.com/therockakash" target="_blank">
-                           <i class="fab fa-instagram"></i>
-                           </a>
-                           <a href="https://www.linkedin.com/in/therockakash" target="_blank">
-                           <i class="fab fa-linkedin"></i>
-                           </a>
-                           <a href="https://github.com/therockakash" target="_blank">
-                           <i class="fab fa-github"></i>
-                           </a>
-                           <a href="https://www.youtube.com/@therockakash" target="_blank">
-                           <i class="fab fa-youtube"></i>
-                           </a>
-                           <div class="submit-btn">
-                              <a href="https://drive.google.com/file/d/1xyhSpYuGJGGiKlk1E8d1TQnDooldo6xY/view" class="main-btn">
-                              <i class="fas fa-download"></i> 
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+            <h3>Flutter Development</h3>
+            <p>
+              Cross-platform mastery with Flutter and Dart. Building performant,
+              beautiful apps that run seamlessly on Android and iOS from a
+              single codebase with native-grade experience.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Dart</span><span class="tag">Flutter</span
+              ><span class="tag">BLoC</span><span class="tag">Provider</span
+              ><span class="tag">Material 3</span>
             </div>
-         </section>
-      </main>
-      <div class="controls">
-         <a href="" class="control active-btn-" data-id="home"> <i class="fas fa-home"></i> </a>
-         <a href="#about" class="control" data-id="about"><i class="fas fa-user"></i></a>
-         <a href="#portfolio" class="control" data-id="portfolio"><i class="fas fa-briefcase"></i></a>
-         <a href="#contact" class="control" data-id="contact"><i class="fas fa-envelope-open"></i></a>
-         <!-- <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-            </div> -->
+          </article>
+        </div>
       </div>
-      <div class="theme-btn">
-         <i class="fas fa-adjust"></i>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <span class="section-label">02 / Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+        <div class="projects-grid">
+          <!-- Cloudemy Studio -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-header-pattern"></div>
+              <span class="project-header-num">01</span>
+              <span class="project-header-cat">Video Editing</span>
+            </div>
+            <div class="project-body">
+              <h3>Cloudemy Studio</h3>
+              <p>
+                Full end-to-end recording engine with lag-free 4K video capture,
+                encrypted PDF exports, and noise cancellation.
+              </p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-val">92,000+</div>
+                  <div class="project-stat-key">downloads</div>
+                </div>
+                <div>
+                  <div class="project-stat-val">4.2</div>
+                  <div class="project-stat-key">rating</div>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Android</span><span class="tag">Kotlin</span
+                ><span class="tag">Video Processing</span
+                ><span class="tag">Encryption</span>
+              </div>
+            </div>
+          </article>
+          <!-- BillNest -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-header-pattern"></div>
+              <span class="project-header-num">02</span>
+              <span class="project-header-cat">FinTech</span>
+            </div>
+            <div class="project-body">
+              <h3>BillNest</h3>
+              <p>
+                FinTech platform with AEPS, DMT, and secure multi-token wallet
+                modules with sub-200ms transaction latency.
+              </p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-val">High-Volume</div>
+                  <div class="project-stat-key">transactions</div>
+                </div>
+                <div>
+                  <div class="project-stat-val">&lt;200ms</div>
+                  <div class="project-stat-key">latency</div>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Android</span><span class="tag">Kotlin</span
+                ><span class="tag">FinTech</span
+                ><span class="tag">Security</span>
+              </div>
+            </div>
+          </article>
+          <!-- Wow Fashions -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-header-pattern"></div>
+              <span class="project-header-num">03</span>
+              <span class="project-header-cat">E-commerce</span>
+            </div>
+            <div class="project-body">
+              <h3>Wow Fashions</h3>
+              <p>
+                Bilingual Arabic-English fashion e-commerce app with optimized
+                product discovery, driving 42% increase in daily active shoppers
+                in GCC markets.
+              </p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-val">GCC</div>
+                  <div class="project-stat-key">market</div>
+                </div>
+                <div>
+                  <div class="project-stat-val">+42% DAU</div>
+                  <div class="project-stat-key">growth</div>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Android</span><span class="tag">Kotlin</span
+                ><span class="tag">E-commerce</span
+                ><span class="tag">Localization</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="more-projects-title">More Projects</h3>
+        <div class="more-grid">
+          <div class="more-card">
+            <div class="more-card-top">
+              <h4>SazCars</h4>
+              <span class="more-card-cat">Auction</span>
+            </div>
+            <p>
+              Real-time car auction platform with Firebase, sub-100ms bidding
+              updates and scalable multi-user architecture across Android & iOS.
+            </p>
+          </div>
+          <div class="more-card">
+            <div class="more-card-top">
+              <h4>Khata360</h4>
+              <span class="more-card-cat">Enterprise</span>
+            </div>
+            <p>
+              Tailor management system with role-based access control and
+              modular PDF invoicing, reducing manual reporting by 60%.
+            </p>
+          </div>
+          <div class="more-card">
+            <div class="more-card-top">
+              <h4>Social X</h4>
+              <span class="more-card-cat">Social</span>
+            </div>
+            <p>
+              Led monetization and growth strategy, achieving 300% monthly
+              revenue increase through consumables, referrals, and targeted
+              campaigns.
+            </p>
+          </div>
+          <div class="more-card">
+            <div class="more-card-top">
+              <h4>Survey Gesture</h4>
+              <span class="more-card-cat">AI/ML</span>
+            </div>
+            <p>
+              Contactless gesture-recognition AI feedback app with TensorFlow
+              Lite, reaching 95%+ on-device accuracy.
+            </p>
+          </div>
+        </div>
       </div>
-      <script src="app.js"></script>
-   </body>
+    </section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section class="section" id="skills">
+      <div class="section-inner">
+        <span class="section-label">03 / Stack</span>
+        <h2 class="section-title" id="skillsTitle">Android Tech Stack</h2>
+        <div class="section-line"></div>
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section class="section" id="experience">
+      <div class="section-inner">
+        <span class="section-label">04 / Journey</span>
+        <h2 class="section-title">Work Experience</h2>
+        <div class="section-line"></div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3>Senior Android Developer</h3>
+                  <span class="timeline-company"
+                    >RoundPay Technomedia PVT LTD</span
+                  >
+                </div>
+                <div class="timeline-meta">
+                  <span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Dec 2023 - Present</span
+                  ><span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Lucknow, India</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-highlights">
+                <li>
+                  Architected and delivered 15+ high-performance apps across
+                  FinTech, MLM, Crypto, Networking, and Enterprise domains
+                </li>
+                <li>
+                  Led and mentored an 8-10 member engineering team, establishing
+                  Clean Architecture, MVVM, and SOLID principles
+                </li>
+                <li>
+                  Delivered mission-critical features with 99.9% uptime,
+                  reducing latency by 20%
+                </li>
+                <li>
+                  Reduced bundle size by 40%, improved cold-start time by 25%,
+                  achieving 99+% crash-free sessions
+                </li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Kotlin</span><span class="tag">Java</span
+                ><span class="tag">Flutter</span
+                ><span class="tag">Clean Architecture</span
+                ><span class="tag">MVVM</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3>Lead Android Developer</h3>
+                  <span class="timeline-company"
+                    >TrivialWorks Solutions PVT LTD</span
+                  >
+                </div>
+                <div class="timeline-meta">
+                  <span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    May 2023 - Dec 2023</span
+                  ><span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Lucknow, India</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-highlights">
+                <li>
+                  Guided 5-8 developers in MVVM-based, modular projects with
+                  99.4% crash-free sessions
+                </li>
+                <li>
+                  Architected cross-border event booking app with date-time
+                  localization, driving 40% uptick in international users
+                </li>
+                <li>
+                  Built UPI-enabled payment flows for a quiz app with 300K+
+                  downloads and 50K MAU
+                </li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Android</span><span class="tag">Kotlin</span
+                ><span class="tag">UPI</span><span class="tag">Agile</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3>Android Developer</h3>
+                  <span class="timeline-company"
+                    >SkyView Smart Solutions PVT LTD</span
+                  >
+                </div>
+                <div class="timeline-meta">
+                  <span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Dec 2022 - May 2023</span
+                  ><span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Lucknow, India</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-highlights">
+                <li>
+                  Engineered on-device TensorFlow Lite/ML Kit solution for
+                  touchless feedback in retail
+                </li>
+                <li>
+                  Integrated Firebase, Google Maps, Facebook SDK for real-time
+                  notifications and analytics
+                </li>
+                <li>Achieved 99% feature adoption across releases</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Android</span
+                ><span class="tag">TensorFlow Lite</span
+                ><span class="tag">Firebase</span
+                ><span class="tag">ML Kit</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3>Android Developer / Consultant</h3>
+                  <span class="timeline-company">Freelance</span>
+                </div>
+                <div class="timeline-meta">
+                  <span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    July 2018 - Dec 2022</span
+                  ><span
+                    ><svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Lucknow, India</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-highlights">
+                <li>
+                  Delivered custom apps across retail, productivity, and
+                  entertainment domains
+                </li>
+                <li>
+                  Launched multiple Play Store apps with 85K+ and 25K+
+                  downloads, sustaining 4.5+ ratings
+                </li>
+                <li>
+                  Resolved memory leaks and optimized performance to cut ANRs by
+                  60%
+                </li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Android</span><span class="tag">Java</span
+                ><span class="tag">Kotlin</span
+                ><span class="tag">REST APIs</span
+                ><span class="tag">Dagger</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CASE STUDIES ═══ -->
+    <section class="section" id="casestudies">
+      <div class="section-inner">
+        <span class="section-label">05 / Impact</span>
+        <h2 class="section-title">Case Studies</h2>
+        <div class="section-line"></div>
+        <div class="case-studies-grid">
+          <a href="/case-studies/billnest/">
+            <article class="case-card">
+              <div class="case-card-badge">FinTech</div>
+              <h3>Scaling BillNest to High-Volume Transactions</h3>
+              <p class="case-card-summary">
+                How I architected a secure, high-throughput FinTech platform
+                handling AEPS, DMT, and multi-token wallet operations with
+                sub-200ms latency across thousands of concurrent users.
+              </p>
+              <div class="case-card-metrics">
+                <div class="case-metric">
+                  <span class="case-metric-val">&lt;200ms</span
+                  ><span class="case-metric-key">Transaction Latency</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">99.9%</span
+                  ><span class="case-metric-key">Uptime</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">35%</span
+                  ><span class="case-metric-key">Fraud Reduction</span>
+                </div>
+              </div>
+              <div class="case-card-detail">
+                <h4>Challenge</h4>
+                <p>
+                  The platform needed to process thousands of financial
+                  transactions simultaneously while maintaining strict security
+                  compliance and real-time balance updates across multiple
+                  payment gateways.
+                </p>
+                <h4>Solution</h4>
+                <p>
+                  Implemented a modular Clean Architecture approach with
+                  dedicated security layers including root detection, VPN
+                  blocking, and encrypted token management. Optimized API
+                  communication pipelines and introduced background process
+                  scheduling to handle peak loads without degrading user
+                  experience.
+                </p>
+                <h4>Tech Stack</h4>
+                <div class="tag-row">
+                  <span class="tag">Kotlin</span><span class="tag">MVVM</span
+                  ><span class="tag">Retrofit</span><span class="tag">Room</span
+                  ><span class="tag">Coroutines</span
+                  ><span class="tag">AES Encryption</span>
+                </div>
+              </div>
+            </article>
+          </a>
+          <a href="/case-studies/wow-fashions/">
+            <article class="case-card">
+              <div class="case-card-badge">E-commerce</div>
+              <h3>Wow Fashions: Conquering the GCC Market</h3>
+              <p class="case-card-summary">
+                Building a bilingual Arabic-English fashion e-commerce
+                experience that drove a 42% surge in daily active shoppers
+                across Middle Eastern markets through localization-first
+                engineering.
+              </p>
+              <div class="case-card-metrics">
+                <div class="case-metric">
+                  <span class="case-metric-val">+42%</span
+                  ><span class="case-metric-key">DAU Growth</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">RTL</span
+                  ><span class="case-metric-key">Full RTL Support</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">2x</span
+                  ><span class="case-metric-key">Search Speed</span>
+                </div>
+              </div>
+              <div class="case-card-detail">
+                <h4>Challenge</h4>
+                <p>
+                  Fashion e-commerce in the GCC demands full RTL layout support,
+                  culturally appropriate UX flows, and lightning-fast product
+                  discovery across catalogs with thousands of SKUs in two
+                  languages.
+                </p>
+                <h4>Solution</h4>
+                <p>
+                  Engineered a dynamic RTL/LTR layout system with seamless
+                  language switching, optimized product search with predictive
+                  filtering, and implemented region-aware payment gateway
+                  integration for local payment methods popular in GCC markets.
+                </p>
+                <h4>Tech Stack</h4>
+                <div class="tag-row">
+                  <span class="tag">Android</span><span class="tag">Kotlin</span
+                  ><span class="tag">Jetpack Compose</span
+                  ><span class="tag">Algolia Search</span
+                  ><span class="tag">Firebase</span>
+                </div>
+              </div>
+            </article>
+          </a>
+          <a href="/case-studies/performance-optimization/">
+            <article class="case-card">
+              <div class="case-card-badge">Performance</div>
+              <h3>40% Bundle Reduction Across 15+ Apps</h3>
+              <p class="case-card-summary">
+                A systematic approach to performance optimization that reduced
+                APK sizes by 40%, improved cold-start times by 25%, and achieved
+                99.3%+ crash-free rates across the entire app portfolio.
+              </p>
+              <div class="case-card-metrics">
+                <div class="case-metric">
+                  <span class="case-metric-val">-40%</span
+                  ><span class="case-metric-key">Bundle Size</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">-25%</span
+                  ><span class="case-metric-key">Cold Start</span>
+                </div>
+                <div class="case-metric">
+                  <span class="case-metric-val">-60%</span
+                  ><span class="case-metric-key">ANR Rate</span>
+                </div>
+              </div>
+              <div class="case-card-detail">
+                <h4>Challenge</h4>
+                <p>
+                  Managing performance across a portfolio of 15+ production apps
+                  with varying architectures, legacy codebases, and diverse
+                  target devices including low-end hardware in emerging markets.
+                </p>
+                <h4>Solution</h4>
+                <p>
+                  Established a performance baseline framework with automated
+                  profiling pipelines. Applied ProGuard/R8 optimization, image
+                  asset compression, lazy module loading, memory leak detection
+                  with LeakCanary, and RecyclerView optimization patterns.
+                  Created a shared performance library for consistent monitoring
+                  across all projects.
+                </p>
+                <h4>Tech Stack</h4>
+                <div class="tag-row">
+                  <span class="tag">Android Profiler</span
+                  ><span class="tag">LeakCanary</span
+                  ><span class="tag">R8/ProGuard</span
+                  ><span class="tag">Baseline Profiles</span
+                  ><span class="tag">Macrobenchmark</span>
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BLOG / INSIGHTS ═══ -->
+    <section class="section" id="blog">
+      <div class="section-inner">
+        <span class="section-label">06 / Insights</span>
+        <h2 class="section-title">Blog & Insights</h2>
+        <div class="section-line"></div>
+        <p class="blog-intro">
+          Thoughts on mobile architecture, performance patterns, and lessons
+          from shipping 25+ production apps. Also available as video tutorials
+          on the Coding Wizards YouTube channel.
+        </p>
+
+        <div class="blog-grid">
+          <a href="/blog/clean-architecture-android/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">Architecture</span
+                ><span class="blog-date">2025</span>
+              </div>
+              <h3>Clean Architecture in Android: Beyond the Buzzword</h3>
+              <p>
+                A practical guide to implementing Clean Architecture in
+                production Android apps without over-engineering. How separating
+                concerns across data, domain, and presentation layers reduced
+                critical bugs by 25% in our team.
+              </p>
+              <div class="blog-card-topics">
+                <span>MVVM</span><span>Use Cases</span
+                ><span>Repository Pattern</span
+                ><span>Dependency Injection</span>
+              </div>
+            </article>
+          </a>
+          <a href="/blog/cold-start-optimization/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">Performance</span
+                ><span class="blog-date">2025</span>
+              </div>
+              <h3>The Cold Start Optimization Playbook</h3>
+              <p>
+                Techniques I used to shave 25% off cold-start times across 15+
+                production apps. Covers App Startup library, lazy initialization
+                patterns, background thread strategies, and measuring what
+                actually matters.
+              </p>
+              <div class="blog-card-topics">
+                <span>Startup Traces</span><span>Lazy Init</span
+                ><span>Baseline Profiles</span><span>Benchmarking</span>
+              </div>
+            </article>
+          </a>
+          <a href="/blog/android-security-hardening/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">Security</span
+                ><span class="blog-date">2024</span>
+              </div>
+              <h3>Hardening Android Apps Against Fraud</h3>
+              <p>
+                Implementing multi-layered security for FinTech apps: root
+                detection, VPN blocking, emulator detection, certificate
+                pinning, and runtime integrity checks. How these measures
+                reduced fraud incidents by 35%.
+              </p>
+              <div class="blog-card-topics">
+                <span>Root Detection</span><span>SSL Pinning</span
+                ><span>Obfuscation</span><span>Integrity Checks</span>
+              </div>
+            </article>
+          </a>
+          <a href="/blog/flutter-vs-native/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">Flutter</span
+                ><span class="blog-date">2024</span>
+              </div>
+              <h3>Flutter vs Native: When to Choose What</h3>
+              <p>
+                After building apps in both ecosystems, here is my honest take
+                on when Flutter wins, when native Android is the better choice,
+                and the hybrid patterns that get the best of both worlds.
+              </p>
+              <div class="blog-card-topics">
+                <span>Platform Channels</span><span>Code Sharing</span
+                ><span>Performance</span><span>Team Size</span>
+              </div>
+            </article>
+          </a>
+          <a href="/blog/jetpack-compose-migration/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">Jetpack Compose</span
+                ><span class="blog-date">2024</span>
+              </div>
+              <h3>Migrating to Jetpack Compose Incrementally</h3>
+              <p>
+                A step-by-step strategy for migrating legacy XML-based UIs to
+                Jetpack Compose without rewriting everything at once.
+                Interoperability patterns, state management bridges, and lessons
+                from migrating 5 production apps.
+              </p>
+              <div class="blog-card-topics">
+                <span>ComposeView</span><span>State Hoisting</span
+                ><span>Navigation</span><span>Testing</span>
+              </div>
+            </article>
+          </a>
+          <a href="/blog/on-device-ml-tensorflow/">
+            <article class="blog-card">
+              <div class="blog-card-meta">
+                <span class="blog-tag">AI/ML</span
+                ><span class="blog-date">2023</span>
+              </div>
+              <h3>On-Device ML with TensorFlow Lite</h3>
+              <p>
+                How I built a contactless gesture-recognition feedback system
+                achieving 95%+ accuracy entirely on-device. Model optimization,
+                quantization strategies, and real-time inference on mid-range
+                Android hardware.
+              </p>
+              <div class="blog-card-topics">
+                <span>TFLite</span><span>ML Kit</span
+                ><span>Model Optimization</span><span>Edge Inference</span>
+              </div>
+            </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <span class="section-label">07 / Connect</span>
+        <h2 class="section-title">Let's Build Together</h2>
+        <div class="section-line"></div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p class="contact-desc" id="contactDesc">
+              Have a project in mind? Whether you need a dedicated Android
+              developer or want to discuss a new idea, I'm always open to
+              interesting conversations and collaborations.
+            </p>
+            <div class="contact-items">
+              <a href="mailto:therockakash77@gmail.com" class="contact-item">
+                <div class="contact-item-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value">therockakash77@gmail.com</div>
+                </div>
+              </a>
+              <a href="tel:+919616253555" class="contact-item">
+                <div class="contact-item-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Phone</div>
+                  <div class="contact-item-value">+91-9616253555</div>
+                </div>
+              </a>
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Location</div>
+                  <div class="contact-item-value">Lucknow, India</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <h3>Connect with me</h3>
+            <p>Check out my work, tutorials, and open-source contributions.</p>
+            <div class="social-links">
+              <a href="https://www.youtube.com/@therockakash" class="social-link" target="_blank" rel="noopener">
+                <div class="social-link-icon" style="color: #ff0000">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </div>
+                <div class="social-link-info">
+                  <div class="social-link-name">Coding Wizards</div>
+                  <div class="social-link-sub">1000+ learners</div>
+                </div>
+                <div class="social-link-arrow">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/therockakash" class="social-link" target="_blank" rel="noopener">
+                <div class="social-link-icon" style="color: #0a66c2">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </div>
+                <div class="social-link-info">
+                  <div class="social-link-name">LinkedIn</div>
+                  <div class="social-link-sub">Professional Network</div>
+                </div>
+                <div class="social-link-arrow">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+              </a>
+              <a href="https://github.com/therockakash" class="social-link" target="_blank" rel="noopener">
+                <div class="social-link-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                    />
+                  </svg>
+                </div>
+                <div class="social-link-info">
+                  <div class="social-link-name">GitHub</div>
+                  <div class="social-link-sub">Open Source</div>
+                </div>
+                <div class="social-link-arrow">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <p>Designed & Built by Akash Verma</p>
+    </footer>
+
+    <!-- ═══ GSAP ═══ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ═══ STATE ═══
+      let currentExpertise = localStorage.getItem("av_expertise") || "android";
+      let currentMode = localStorage.getItem("av_mode") || "dark";
+
+      // ═══ DYNAMIC WATERMARK SYSTEM ═══
+      const sectionWatermarkMap = {
+        hero: () =>
+          currentExpertise === "android" ? "wmAndroid" : "wmFlutter",
+        about: () => "wmDual",
+        projects: () => "wmCode",
+        skills: () => "wmSkills",
+        experience: () => "wmBriefcase",
+        casestudies: () => "wmChart",
+        blog: () => "wmBlog",
+        contact: () => "wmContact",
+      };
+      const sectionOrder = [
+        "hero",
+        "about",
+        "projects",
+        "skills",
+        "experience",
+        "casestudies",
+        "blog",
+        "contact",
+      ];
+      let activeWatermark = "wmAndroid";
+
+      function setWatermark(id) {
+        if (id === activeWatermark) return;
+        const allSvgs = document.querySelectorAll("#watermarkContainer svg");
+        allSvgs.forEach((s) => s.classList.remove("wm-active"));
+        const target = document.getElementById(id);
+        if (target) target.classList.add("wm-active");
+        activeWatermark = id;
+      }
+
+      function detectCurrentSection() {
+        const viewportMid = window.scrollY + window.innerHeight * 0.5;
+        let current = "hero";
+        for (let i = sectionOrder.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sectionOrder[i]);
+          if (el && el.offsetTop <= viewportMid) {
+            current = sectionOrder[i];
+            break;
+          }
+        }
+        const wmId = sectionWatermarkMap[current]();
+        setWatermark(wmId);
+      }
+
+      let wmRaf = null;
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (wmRaf) return;
+          wmRaf = requestAnimationFrame(() => {
+            detectCurrentSection();
+            wmRaf = null;
+          });
+        },
+        { passive: true },
+      );
+
+      function updateWatermarks() {
+        // Called on expertise switch — update hero mapping
+        sectionWatermarkMap.hero = () =>
+          currentExpertise === "android" ? "wmAndroid" : "wmFlutter";
+        // Re-detect current section so watermark updates immediately
+        detectCurrentSection();
+      }
+
+      // Initial detection
+      detectCurrentSection();
+
+      // ═══ SKILLS DATA ═══
+      const skillsData = {
+        android: [
+          { cat: "Languages", items: ["Java", "Kotlin"] },
+          {
+            cat: "Frameworks",
+            items: ["Android SDK", "Jetpack Compose", "Material Design 3"],
+          },
+          {
+            cat: "Architecture",
+            items: ["MVVM", "Clean Architecture", "SOLID", "Modular Design"],
+          },
+          {
+            cat: "Libraries",
+            items: [
+              "Dagger-Hilt",
+              "Retrofit",
+              "OkHttp",
+              "Glide",
+              "Room",
+              "Coroutines",
+            ],
+          },
+          {
+            cat: "Tools",
+            items: ["Android Studio", "Firebase", "Google Maps", "ProGuard/R8"],
+          },
+          {
+            cat: "Payments",
+            items: [
+              "Stripe",
+              "RazorPay",
+              "UPI",
+              "CashFree",
+              "PayU",
+              "PhonePe",
+              "CCAvenue",
+            ],
+          },
+          { cat: "Testing", items: ["JUnit", "Mockito", "Espresso", "CI/CD"] },
+          { cat: "AI/ML", items: ["TensorFlow Lite", "ML Kit"] },
+        ],
+        flutter: [
+          { cat: "Languages", items: ["Dart", "Kotlin"] },
+          {
+            cat: "Frameworks",
+            items: ["Flutter SDK", "Material Design 3", "Cupertino Widgets"],
+          },
+          {
+            cat: "Architecture",
+            items: ["MVVM", "Clean Architecture", "BLoC Pattern", "Provider"],
+          },
+          {
+            cat: "Libraries",
+            items: ["Dio", "Riverpod", "GetX", "Hive", "Drift"],
+          },
+          {
+            cat: "Tools",
+            items: ["VS Code", "Firebase", "Google Cloud Platform"],
+          },
+          { cat: "Platforms", items: ["Android", "iOS", "Cross-Platform"] },
+          {
+            cat: "Features",
+            items: [
+              "Custom Animations",
+              "Platform Channels",
+              "PDF Generation",
+              "RBAC",
+            ],
+          },
+          { cat: "Payments", items: ["Stripe", "RazorPay", "In-App Billing"] },
+        ],
+      };
+
+      function renderSkills() {
+        const grid = document.getElementById("skillsGrid");
+        const data = skillsData[currentExpertise];
+        grid.innerHTML = data
+          .map(
+            (g, i) => `
+    <div class="skill-group" style="opacity:0;transform:translateY(40px)">
+      <h4>${g.cat}</h4>
+      <div class="skill-items">${g.items.map((it) => `<span class="skill-item">${it}</span>`).join("")}</div>
+    </div>
+  `,
+          )
+          .join("");
+        // Animate in
+        gsap.to(".skill-group", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: "power3.out",
+          delay: 0.1,
+          scrollTrigger: { trigger: "#skills", start: "top 80%" },
+        });
+      }
+      renderSkills();
+
+      // ═══ HERO CHAR SPLIT ═══
+      function splitHeroName() {
+        const el = document.getElementById("heroName");
+        const text = el.textContent;
+        el.innerHTML = text
+          .split("")
+          .map((c) => (c === " " ? " " : `<span class="char">${c}</span>`))
+          .join("");
+      }
+      splitHeroName();
+
+      // ═══ HERO TAGLINE WORD SPLIT ═══
+      function splitTagline() {
+        const el = document.getElementById("heroTagline");
+        const text = el.textContent;
+        el.innerHTML = text
+          .split(" ")
+          .map((w) => `<span class="word">${w}&nbsp;</span>`)
+          .join("");
+      }
+      splitTagline();
+
+      // ═══ HERO ANIMATION TIMELINE ═══
+      function playHeroAnimation() {
+        const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+        tl.to(
+          ".hero-name .char",
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.03 },
+          0.3,
+        )
+          .to(
+            ".hero-tagline .word",
+            { y: 0, opacity: 1, duration: 0.6, stagger: 0.05 },
+            "-=.4",
+          )
+          .to(".hero-desc", { y: 0, opacity: 1, duration: 0.6 }, "-=.3")
+          .to(".hero-cta", { y: 0, opacity: 1, duration: 0.6 }, "-=.3")
+          .to(".hero-stats", { y: 0, opacity: 1, duration: 0.6 }, "-=.3");
+      }
+      playHeroAnimation();
+
+      // ═══ COUNTER ANIMATION ═══
+      function animateCounters() {
+        document.querySelectorAll(".count").forEach((el) => {
+          const target = parseInt(el.dataset.target);
+          gsap.to(el, {
+            textContent: target,
+            duration: 1.5,
+            ease: "power2.out",
+            snap: { textContent: 1 },
+            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+          });
+        });
+      }
+      animateCounters();
+
+      // ═══ SCROLL ANIMATIONS ═══
+      function initScrollAnimations() {
+        // Kill old triggers
+        ScrollTrigger.getAll().forEach((t) => t.kill());
+
+        // Section labels
+        gsap.utils.toArray(".section-label").forEach((el) => {
+          gsap.to(el, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+        // Section titles
+        gsap.utils.toArray(".section-title").forEach((el) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+        // Section lines
+        gsap.utils.toArray(".section-line").forEach((el) => {
+          gsap.to(el, {
+            opacity: 1,
+            scaleX: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+
+        // Dual cards
+        gsap.utils.toArray(".dual-card").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: i * 0.15,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+
+        // Project cards
+        gsap.utils.toArray(".project-card").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: i * 0.12,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          });
+        });
+
+        // More project title
+        gsap.to(".more-projects-title", {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".more-projects-title",
+            start: "top 85%",
+            once: true,
+          },
+        });
+
+        // More cards
+        gsap.utils.toArray(".more-card").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          });
+        });
+
+        // Skill groups
+        gsap.utils.toArray(".skill-group").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.08,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          });
+        });
+
+        // Timeline items
+        gsap.utils.toArray(".timeline-item").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            x: 0,
+            duration: 0.7,
+            delay: i * 0.12,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+
+        // Contact
+        gsap.to(".contact-info", {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".contact-info",
+            start: "top 85%",
+            once: true,
+          },
+        });
+        gsap.to(".contact-social", {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          delay: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".contact-social",
+            start: "top 85%",
+            once: true,
+          },
+        });
+
+        // Case study cards
+        gsap.utils.toArray(".case-card").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.15,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          });
+        });
+
+        // Blog intro
+        gsap.to(".blog-intro", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".blog-intro",
+            start: "top 85%",
+            once: true,
+          },
+        });
+
+        // Blog cards
+        gsap.utils.toArray(".blog-card").forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.08,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          });
+        });
+
+        // Parallax orbs
+        gsap.to(".hero-orb-1", {
+          y: -100,
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+        gsap.to(".hero-orb-2", {
+          y: -60,
+          x: 40,
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+        gsap.to(".hero-orb-3", {
+          y: -80,
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+
+        // Watermark is handled by its own scroll listener (detectCurrentSection)
+
+        // Counters
+        animateCounters();
+      }
+      initScrollAnimations();
+
+      // ═══ CURSOR GLOW ═══
+      document.addEventListener("mousemove", (e) => {
+        const glow = document.getElementById("cursorGlow");
+        gsap.to(glow, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+      });
+
+      // ═══ NAV SCROLL ═══
+      window.addEventListener(
+        "scroll",
+        () => {
+          document
+            .getElementById("nav")
+            .classList.toggle("scrolled", window.scrollY > 60);
+        },
+        { passive: true },
+      );
+      // ═══ EXPERTISE SWITCH ═══
+      function setExpertise(exp) {
+        if (exp === currentExpertise) return;
+        currentExpertise = exp;
+        localStorage.setItem("av_expertise", exp);
+        applyTheme();
+
+        // Toggle classes
+        document.getElementById("expertiseToggle").dataset.active = exp;
+        document
+          .querySelectorAll(".expertise-btn")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.expertise === exp),
+          );
+
+        // Theme class
+        document.body.className = `${exp}-${currentMode}`;
+
+        // Update watermarks
+        updateWatermarks();
+
+        // Update hero
+        document.getElementById("heroBadge").textContent =
+          exp === "android" ? "Android Specialist" : "Flutter Specialist";
+
+        const taglineEl = document.getElementById("heroTagline");
+        const descEl = document.getElementById("heroDesc");
+
+        if (exp === "android") {
+          taglineEl.textContent =
+            "Architecting Pixel-Perfect Android Experiences";
+          descEl.textContent =
+            "8+ years building high-performance Android applications across FinTech, Crypto, E-commerce, and Enterprise. 25+ apps shipped. 99.3%+ crash-free sessions.";
+          document.getElementById("stat4Label").textContent = "Downloads";
+          document.getElementById("contactDesc").textContent =
+            "Have a project in mind? Whether you need a dedicated Android developer or want to discuss a new idea, I'm always open to interesting conversations and collaborations.";
+        } else {
+          taglineEl.textContent = "Crafting Cross-Platform Magic with Flutter";
+          descEl.textContent =
+            "4+ years delivering cross-platform applications with Flutter across mobile and beyond. Pixel-perfect UIs with native-grade performance.";
+          document.getElementById("stat4Label").textContent = "Downloads";
+          document.getElementById("contactDesc").textContent =
+            "Have a project in mind? Whether you need a dedicated Flutter developer or want to discuss a new idea, I'm always open to interesting conversations and collaborations.";
+        }
+
+        // Re-split tagline words
+        splitTagline();
+        gsap.fromTo(
+          ".hero-tagline .word",
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.04,
+            ease: "power3.out",
+          },
+        );
+
+        // Dual cards
+        document
+          .getElementById("androidCard")
+          .classList.toggle("active", exp === "android");
+        document
+          .getElementById("flutterCard")
+          .classList.toggle("active", exp === "flutter");
+
+        // Skills
+        document.getElementById("skillsTitle").textContent =
+          exp === "android" ? "Android Tech Stack" : "Flutter Tech Stack";
+        renderSkills();
+
+        // Re-init scroll animations
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
+      // ═══ THEME TOGGLE ═══
+      function applyTheme() {
+        document.body.className = currentExpertise + "-" + currentMode;
+        // Update toggle UI
+        const toggle = document.getElementById("expertiseToggle");
+        if (toggle) toggle.dataset.active = currentExpertise;
+        document.querySelectorAll(".expertise-btn").forEach((b) => {
+          b.classList.toggle(
+            "active",
+            b.dataset.expertise === currentExpertise,
+          );
+        });
+        // Update sun/moon
+        const sun = document.getElementById("sunIcon");
+        const moon = document.getElementById("moonIcon");
+        if (sun) sun.style.display = currentMode === "dark" ? "none" : "block";
+        if (moon)
+          moon.style.display = currentMode === "dark" ? "block" : "none";
+      }
+      function toggleTheme() {
+        currentMode = currentMode === "dark" ? "light" : "dark";
+        localStorage.setItem("av_mode", currentMode);
+        applyTheme();
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        applyTheme();
+      });
+      // ═══ MOBILE MENU ═══
+      function toggleMobile() {
+        document.getElementById("mobileOverlay").classList.toggle("open");
+      }
+      function closeMobile() {
+        document.getElementById("mobileOverlay").classList.remove("open");
+      }
+
+      // ═══ SMOOTH SCROLL FOR NAV LINKS ═══
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>On-Device ML with TensorFlow Lite | Akash Verma</title>
+<meta name="description" content="How I built a contactless gesture-recognition feedback system achieving 95%+ accuracy entirely on-device using TensorFlow Lite and ML Kit.">
+<meta name="author" content="Akash Verma"><link rel="canonical" href="https://akashverma.dev/blog/on-device-ml-tensorflow/">
+<meta property="og:title" content="On-Device ML with TensorFlow Lite | Akash Verma"><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css"></head>
+<body class="android-dark"><script src="../../js/shared.js"></script><script>injectNav('blog');</script>
+<header class="page-hero"><div class="page-hero-inner">
+<div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>TensorFlow Lite</span></div>
+<span class="page-hero-badge">AI/ML</span>
+<h1>On-Device ML with TensorFlow Lite</h1>
+<p class="page-hero-desc">How I built a contactless gesture-recognition feedback system achieving 95%+ accuracy entirely on-device. Model optimization, quantization strategies, and real-time inference on mid-range Android hardware.</p>
+<div class="page-hero-meta"><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2023</span><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 9 min read</span></div>
+</div></header>
+
+<article class="article-wrap">
+  <h2>The Problem: Touchless Feedback in Retail</h2>
+  <p>During the post-pandemic period, a retail client needed a feedback collection system that customers could use without touching a shared screen. The requirement was simple: a tablet mounted at the store exit where customers could rate their experience using hand gestures — thumbs up, thumbs down, or a wave to skip — all processed in real-time without internet dependency.</p>
+  <p>This meant everything had to run on-device: camera capture, gesture detection, classification, and result storage. No cloud APIs, no network latency, no privacy concerns about uploading customer video to external servers.</p>
+
+  <h2>Choosing the Right ML Approach</h2>
+  <p>I evaluated three approaches:</p>
+  <ul>
+    <li><strong>MediaPipe Hands</strong> — Google's pre-built hand tracking solution. Excellent for hand landmark detection but required building custom gesture classification on top</li>
+    <li><strong>ML Kit Pose Detection</strong> — Included hand detection but was optimized for full-body pose, adding unnecessary overhead for our single-hand use case</li>
+    <li><strong>Custom TFLite model</strong> — A purpose-built model trained specifically for our gesture set, optimized for size and inference speed</li>
+  </ul>
+  <p>I chose a hybrid approach: MediaPipe Hands for hand landmark detection (21 key points per hand) feeding into a custom TFLite classifier trained on our specific gesture vocabulary. This gave us the robustness of Google's hand tracking with the efficiency of a purpose-built classification model.</p>
+
+  <h2>Model Training and Optimization</h2>
+  <h3>Dataset Collection</h3>
+  <p>I collected gesture samples from 50 participants across varied lighting conditions, skin tones, and hand sizes. Each gesture class (thumbs up, thumbs down, open palm wave, and "no hand present" as a negative class) had approximately 2,000 samples. Data augmentation (rotation, scaling, brightness variation) expanded the effective training set by 5x.</p>
+
+  <h3>Model Architecture</h3>
+  <p>The classifier is intentionally simple: a feed-forward neural network that takes 42 normalized coordinates (21 landmarks x 2 dimensions) and outputs gesture class probabilities. No convolutions, no attention layers — just three dense layers with dropout. The simplicity is the point: inference needs to be fast enough for real-time feedback.</p>
+
+  <h3>Quantization</h3>
+  <p>The full-precision model was 1.2MB. After post-training quantization to INT8, it dropped to 340KB with less than 0.5% accuracy loss. This is important not just for storage — quantized models run significantly faster on mobile CPUs because integer arithmetic is cheaper than floating-point operations, and ARM processors have optimized instruction sets for INT8 computation.</p>
+
+  <h2>Integration Architecture</h2>
+  <p>The Android app architecture followed a pipeline pattern:</p>
+  <ol>
+    <li><strong>Camera capture</strong> — CameraX with ImageAnalysis use case, delivering frames at 15fps to minimize battery drain while maintaining responsive gesture detection</li>
+    <li><strong>Hand detection</strong> — MediaPipe Hands processes each frame, outputting 21 hand landmarks if a hand is detected</li>
+    <li><strong>Normalization</strong> — Landmarks are normalized relative to the hand bounding box, making the classification position-invariant and scale-invariant</li>
+    <li><strong>Classification</strong> — The TFLite model classifies the normalized landmarks, outputting confidence scores per gesture class</li>
+    <li><strong>Temporal smoothing</strong> — A sliding window of 5 frames filters out spurious classifications, requiring 3/5 frame agreement before registering a gesture</li>
+    <li><strong>Feedback recording</strong> — Confirmed gestures are stored locally in a Room database with timestamps, synced to the backend during off-peak hours</li>
+  </ol>
+
+  <h2>Performance on Real Hardware</h2>
+  <p>Target hardware was a Samsung Galaxy Tab A8 — a budget tablet representative of what retailers would actually deploy. Performance results:</p>
+  <ul>
+    <li>End-to-end pipeline latency: 65ms per frame (capture to classification)</li>
+    <li>Classification accuracy: 95.3% on the test set, 93.8% in real-world deployment conditions</li>
+    <li>Model size: 340KB (quantized TFLite model)</li>
+    <li>Battery impact: less than 5% per hour during active use</li>
+    <li>Feedback submission rate increased by 35% compared to the previous touch-based system</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <p>On-device ML is not about building the most sophisticated model. It is about building the simplest model that solves the problem within the constraints of the target hardware. The gap between "works in the lab" and "works in a retail store with fluorescent lighting and busy backgrounds" is bridged by robust preprocessing and temporal smoothing, not by model complexity.</p>
+
+  <div class="tag-row"><span class="tag">TFLite</span><span class="tag">ML Kit</span><span class="tag">MediaPipe</span><span class="tag">Model Optimization</span><span class="tag">Edge Inference</span><span class="tag">CameraX</span><span class="tag">Quantization</span></div>
+</article>
+
+<div class="related-section"><h3 class="related-title">Related Posts</h3><div class="related-grid">
+<a href="../android-security-hardening/" class="related-card"><span class="related-card-badge">Security</span><h4>Hardening Android Apps Against Fraud</h4></a>
+<a href="../clean-architecture-android/" class="related-card"><span class="related-card-badge">Architecture</span><h4>Clean Architecture in Android: Beyond the Buzzword</h4></a>
+</div></div>
+</body></html>

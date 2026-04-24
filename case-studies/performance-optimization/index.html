@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: 40% Bundle Reduction Across 15+ Apps | Akash Verma</title>
+<meta name="description" content="A systematic approach to Android performance optimization that reduced APK sizes by 40%, improved cold-start times by 25%, and achieved 99.3%+ crash-free rates.">
+<meta name="author" content="Akash Verma">
+<link rel="canonical" href="https://akashverma.dev/case-studies/performance-optimization/">
+<meta property="og:title" content="Case Study: 40% Bundle Reduction | Akash Verma">
+<meta property="og:description" content="Systematic performance optimization across 15+ production Android apps.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css">
+</head>
+<body class="android-dark">
+
+<script src="../../js/shared.js"></script>
+<script>injectNav('case-studies');</script>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="../">Case Studies</a><span class="sep">/</span>
+      <span>Performance Optimization</span>
+    </div>
+    <span class="page-hero-badge">Performance</span>
+    <h1>40% Bundle Reduction Across 15+ Apps</h1>
+    <p class="page-hero-desc">A systematic approach to performance optimization that reduced APK sizes by 40%, improved cold-start times by 25%, and achieved 99.3%+ crash-free rates across the entire app portfolio.</p>
+    <div class="page-hero-meta">
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2023-2025</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Android / Kotlin / Java</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 10 min read</span>
+    </div>
+  </div>
+</header>
+
+<article class="article-wrap">
+  <div class="metrics-row">
+    <div class="metric"><span class="metric-val">-40%</span><span class="metric-key">Bundle Size</span></div>
+    <div class="metric"><span class="metric-val">-25%</span><span class="metric-key">Cold Start</span></div>
+    <div class="metric"><span class="metric-val">-60%</span><span class="metric-key">ANR Rate</span></div>
+    <div class="metric"><span class="metric-val">99.3%+</span><span class="metric-key">Crash-Free</span></div>
+  </div>
+
+  <h2>The Challenge</h2>
+  <p>Managing performance across a portfolio of 15+ production Android apps spanning FinTech, MLM, Crypto, and Enterprise domains presented a unique challenge. Each app had its own architecture, dependencies, and performance profile. Some were built with Java, others with Kotlin, and a few were mid-migration. Target devices ranged from flagship phones to budget hardware common in India's tier-2 and tier-3 cities.</p>
+  <p>The team was shipping features fast but accumulating performance debt. APK sizes had ballooned due to unused resources and duplicated dependencies. Cold-start times crept up as initialization logic grew. ANRs (Application Not Responding) spiked during complex data operations that blocked the main thread.</p>
+
+  <h2>The Approach</h2>
+
+  <h3>Phase 1: Measurement Framework</h3>
+  <p>You cannot optimize what you don't measure. I established a performance baseline framework across all apps:</p>
+  <ul>
+    <li>Integrated Firebase Performance Monitoring for real-time cold-start, screen rendering, and network latency tracking</li>
+    <li>Set up Macrobenchmark tests for critical user journeys (app launch, first content display, transaction completion)</li>
+    <li>Created a shared Gradle plugin that automatically ran APK analysis and flagged size regressions on every PR</li>
+    <li>Built a team dashboard displaying performance KPIs per app, updated daily from CI pipelines</li>
+  </ul>
+
+  <h3>Phase 2: Bundle Size Optimization</h3>
+  <p>Achieving the 40% bundle size reduction was a combination of multiple techniques applied systematically:</p>
+  <ul>
+    <li><strong>R8 full mode with aggressive shrinking</strong> — Configured proguard rules per module to maximize dead code elimination while preserving reflection-dependent code paths</li>
+    <li><strong>Resource shrinking and WebP migration</strong> — Converted all PNG/JPEG assets to WebP, removed unused resources with <code>shrinkResources true</code>, and replaced complex vector drawables with optimized SVGs</li>
+    <li><strong>Dynamic feature modules</strong> — Moved rarely-used features (admin panels, advanced reports, onboarding tutorials) into on-demand modules downloaded only when needed</li>
+    <li><strong>Dependency audit</strong> — Replaced heavyweight libraries with lighter alternatives. Swapped Gson for Kotlin Serialization, removed unused Jetpack libraries, and consolidated duplicate utility functions into a shared core module</li>
+    <li><strong>App Bundles (AAB)</strong> — Migrated all apps from APK to AAB distribution, enabling Google Play to deliver optimized APKs per device configuration</li>
+  </ul>
+
+  <h3>Phase 3: Cold-Start Optimization</h3>
+  <p>Reducing cold-start time by 25% required understanding what happens between the user tapping the icon and seeing useful content:</p>
+  <ul>
+    <li>Implemented the App Startup library to replace scattered <code>ContentProvider</code> initializations with a single, ordered startup sequence</li>
+    <li>Deferred non-critical SDK initializations (analytics, crash reporting, ad networks) to a background thread after first frame render</li>
+    <li>Generated Baseline Profiles for critical user paths, allowing ART to pre-compile hot methods during installation rather than at runtime</li>
+    <li>Replaced splash screen animations with static themed windows to eliminate blank-screen perception during process creation</li>
+  </ul>
+
+  <h3>Phase 4: ANR Elimination</h3>
+  <p>ANR reduction required a disciplined approach to threading:</p>
+  <ul>
+    <li>Audited every database query and moved all Room operations to <code>Dispatchers.IO</code> with Kotlin Coroutines</li>
+    <li>Replaced synchronous SharedPreferences with DataStore for non-blocking preference reads</li>
+    <li>Implemented RecyclerView optimization patterns: <code>DiffUtil</code> for minimal UI updates, <code>setHasFixedSize</code>, and view type pooling for complex heterogeneous lists</li>
+    <li>Introduced a strict mode wrapper in debug builds that flagged any disk or network I/O on the main thread, with automatic Slack alerts to the responsible developer</li>
+  </ul>
+
+  <h2>Results</h2>
+  <ul>
+    <li>Average APK size across the portfolio dropped from 28MB to 17MB (40% reduction)</li>
+    <li>Median cold-start time improved from 1.8s to 1.35s (25% faster)</li>
+    <li>ANR rate dropped by 60%, from 0.47% to 0.19% — well below Google's bad behavior threshold</li>
+    <li>Crash-free session rate stabilized above 99.3% across all production apps</li>
+    <li>The performance framework became a standard part of the CI/CD pipeline, preventing regressions on every merge</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <p>Performance optimization at portfolio scale is fundamentally a process problem, not a technical one. The individual techniques — R8, Baseline Profiles, coroutines — are well-documented. The hard part is creating systems that apply them consistently across 15+ apps maintained by multiple developers with varying experience levels.</p>
+  <p>The most impactful decision was making performance a CI gate rather than a periodic audit. When every PR automatically reports APK size delta and startup time impact, performance becomes everyone's responsibility rather than a quarterly fire drill.</p>
+
+  <div class="tag-row">
+    <span class="tag">Android Profiler</span><span class="tag">LeakCanary</span><span class="tag">R8/ProGuard</span>
+    <span class="tag">Baseline Profiles</span><span class="tag">Macrobenchmark</span><span class="tag">Firebase Performance</span>
+    <span class="tag">App Bundles</span><span class="tag">Coroutines</span>
+  </div>
+</article>
+
+<div class="related-section">
+  <h3 class="related-title">More Case Studies</h3>
+  <div class="related-grid">
+    <a href="../billnest/" class="related-card">
+      <span class="related-card-badge">FinTech</span>
+      <h4>Scaling BillNest to High-Volume Transactions</h4>
+    </a>
+    <a href="../wow-fashions/" class="related-card">
+      <span class="related-card-badge">E-commerce</span>
+      <h4>Wow Fashions: Conquering the GCC Market</h4>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

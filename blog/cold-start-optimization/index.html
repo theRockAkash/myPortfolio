@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Cold Start Optimization Playbook | Akash Verma</title>
+<meta name="description" content="Techniques to shave 25% off cold-start times across 15+ production Android apps. Covers App Startup library, lazy initialization, and baseline profiles.">
+<meta name="author" content="Akash Verma"><link rel="canonical" href="https://akashverma.dev/blog/cold-start-optimization/">
+<meta property="og:title" content="Cold Start Optimization Playbook | Akash Verma"><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css"></head>
+<body class="android-dark"><script src="../../js/shared.js"></script><script>injectNav('blog');</script>
+<header class="page-hero"><div class="page-hero-inner">
+<div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>Cold Start</span></div>
+<span class="page-hero-badge">Performance</span>
+<h1>The Cold Start Optimization Playbook</h1>
+<p class="page-hero-desc">Techniques I used to shave 25% off cold-start times across 15+ production apps. Covers App Startup library, lazy initialization patterns, background thread strategies, and measuring what actually matters.</p>
+<div class="page-hero-meta"><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2025</span><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 min read</span></div>
+</div></header>
+
+<article class="article-wrap">
+  <h2>What Cold Start Actually Means</h2>
+  <p>Cold start is the time between the user tapping your app icon and seeing the first meaningful frame. It includes process creation, Application class initialization, Activity creation, layout inflation, and the first draw pass. Every ContentProvider, every eager singleton, every synchronous SDK initialization adds to this number.</p>
+  <p>On a mid-range device — the kind most of your users actually have — a poorly optimized cold start can easily exceed 3 seconds. That is long enough for users to question whether the app is broken.</p>
+
+  <h2>Step 1: Measure Before You Optimize</h2>
+  <p>The first mistake teams make is optimizing without a baseline. I use three measurement approaches:</p>
+  <ul>
+    <li><strong>ADB shell timing</strong> — <code>adb shell am start -S -W com.package/.MainActivity</code> gives you TotalTime, which represents the system-measured cold start duration</li>
+    <li><strong>Macrobenchmark</strong> — Automated, repeatable benchmarks that run on real devices in CI, capturing p50 and p90 startup times across runs</li>
+    <li><strong>Firebase Performance</strong> — Real-world data from actual users on actual devices, segmented by device tier, OS version, and network condition</li>
+  </ul>
+
+  <h2>Step 2: Audit Your Application Class</h2>
+  <p>The Application class is the single biggest contributor to cold start time. Every line of code in <code>onCreate()</code> runs before the user sees anything. I categorize initializations into three buckets:</p>
+  <ul>
+    <li><strong>Critical (keep)</strong> — Crash reporting, dependency injection graph creation, security checks</li>
+    <li><strong>Deferrable (background)</strong> — Analytics SDKs, ad networks, feature flags, remote config</li>
+    <li><strong>Lazy (on-demand)</strong> — Image loading libraries, database migrations, ML model loading</li>
+  </ul>
+  <p>Move everything in the second bucket to a background coroutine launched after the first frame renders. Move everything in the third bucket to lazy initialization triggered by first use.</p>
+
+  <h2>Step 3: App Startup Library</h2>
+  <p>Android's App Startup library replaces the ContentProvider-based initialization pattern. Instead of each library declaring its own ContentProvider (each adding ~2ms to startup), you declare a single provider and order your initializations explicitly. This alone saved 80-120ms across our apps.</p>
+
+  <h2>Step 4: Baseline Profiles</h2>
+  <p>Baseline Profiles are the highest-impact, lowest-effort optimization available. By generating a profile of your app's critical code paths, you instruct the ART runtime to pre-compile those methods during installation. The result: methods that would normally be interpreted on first run are already compiled to native code.</p>
+  <p>In our testing, Baseline Profiles improved cold-start time by 15-20% with zero code changes. The only effort is writing a Macrobenchmark test that exercises your critical user journeys.</p>
+
+  <h2>Step 5: Layout Optimization</h2>
+  <p>The first layout inflation is part of cold start. Deep view hierarchies, nested ConstraintLayouts, and complex data binding expressions all contribute. I follow these rules:</p>
+  <ul>
+    <li>Keep the initial layout flat — maximum 3-4 levels of nesting</li>
+    <li>Use <code>ViewStub</code> for content that is not immediately visible</li>
+    <li>Defer RecyclerView population to after the first frame — show a skeleton or shimmer effect instead</li>
+    <li>If using Jetpack Compose, avoid heavy computation in the initial composition — move data loading to LaunchedEffect</li>
+  </ul>
+
+  <h2>The Results</h2>
+  <p>Applying these techniques systematically across 15+ apps yielded a consistent 25% reduction in cold-start time. The median startup improved from 1.8s to 1.35s. On low-end devices, the improvement was even more dramatic — from 3.2s to 2.1s.</p>
+
+  <div class="tag-row"><span class="tag">Startup Traces</span><span class="tag">Lazy Init</span><span class="tag">Baseline Profiles</span><span class="tag">Macrobenchmark</span><span class="tag">App Startup</span><span class="tag">Coroutines</span></div>
+</article>
+
+<div class="related-section"><h3 class="related-title">Related Posts</h3><div class="related-grid">
+<a href="../clean-architecture-android/" class="related-card"><span class="related-card-badge">Architecture</span><h4>Clean Architecture in Android: Beyond the Buzzword</h4></a>
+<a href="../android-security-hardening/" class="related-card"><span class="related-card-badge">Security</span><h4>Hardening Android Apps Against Fraud</h4></a>
+</div></div>
+</body></html>

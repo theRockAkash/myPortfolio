@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clean Architecture in Android: Beyond the Buzzword | Akash Verma</title>
+<meta name="description" content="A practical guide to implementing Clean Architecture in production Android apps without over-engineering. How separating concerns reduced critical bugs by 25%.">
+<meta name="author" content="Akash Verma">
+<link rel="canonical" href="https://akashverma.dev/blog/clean-architecture-android/">
+<meta property="og:title" content="Clean Architecture in Android | Akash Verma">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css">
+</head>
+<body class="android-dark">
+<script src="../../js/shared.js"></script>
+<script>injectNav('blog');</script>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>Clean Architecture</span></div>
+    <span class="page-hero-badge">Architecture</span>
+    <h1>Clean Architecture in Android: Beyond the Buzzword</h1>
+    <p class="page-hero-desc">A practical guide to implementing Clean Architecture in production Android apps without over-engineering. How separating concerns across data, domain, and presentation layers reduced critical bugs by 25% in our team.</p>
+    <div class="page-hero-meta">
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2025</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 9 min read</span>
+    </div>
+  </div>
+</header>
+
+<article class="article-wrap">
+  <h2>Why Most Clean Architecture Implementations Fail</h2>
+  <p>Clean Architecture is the most over-discussed and under-practiced pattern in Android development. Every team claims to follow it, but most implementations fall into one of two traps: either the architecture is so simplified that it provides no real benefit, or it is so over-engineered that it slows down development without proportional gains.</p>
+  <p>The problem is not with Robert Martin's original concepts. The problem is with how we translate them into Android's specific constraints — Activity lifecycles, configuration changes, dependency injection scoping, and the constant tension between reactive data flows and imperative UI updates.</p>
+
+  <h2>The Three-Layer Contract</h2>
+  <p>In production, I enforce a strict three-layer separation with clear dependency rules:</p>
+  <ul>
+    <li><strong>Presentation Layer</strong> — ViewModels, UI state holders, and Compose/XML views. Knows about the Domain layer. Never imports anything from Data.</li>
+    <li><strong>Domain Layer</strong> — Use cases, entities, and repository interfaces. Knows about nothing. Pure Kotlin, zero Android dependencies.</li>
+    <li><strong>Data Layer</strong> — Repository implementations, API services, database DAOs, mappers. Knows about Domain (implements its interfaces) but never about Presentation.</li>
+  </ul>
+  <p>The critical rule: the <strong>Domain layer has no dependencies</strong>. Not on Retrofit. Not on Room. Not on Android framework classes. If your use case imports <code>android.content.Context</code>, your architecture is broken.</p>
+
+  <h2>Use Cases: The Misunderstood Middle Layer</h2>
+  <p>The most common question I get from junior developers: "Do I really need a use case that just calls the repository?" The answer is yes, but not for the reason you think.</p>
+  <p>Use cases are not about adding logic today. They are about creating a stable API surface that your ViewModel depends on. When business requirements change — and they always do — you add the new logic inside the use case without touching the ViewModel or the Repository. The use case is a firewall against change propagation.</p>
+  <blockquote>A use case that "just calls the repository" today is a use case that will contain critical business logic in three months. The cost of creating it now is one class. The cost of adding it later is a refactor.</blockquote>
+
+  <h2>Practical Implementation</h2>
+  <h3>Dependency Injection Setup</h3>
+  <p>With Dagger-Hilt, each layer gets its own module. The Domain module provides use case bindings. The Data module provides repository implementations and binds them to Domain interfaces. The Presentation module is scoped to ViewModel lifecycles.</p>
+  <p>This scoping means that when a feature module is removed, its entire dependency subtree disappears cleanly — no orphaned bindings, no runtime crashes from missing providers.</p>
+
+  <h3>Error Handling Across Layers</h3>
+  <p>Each layer has its own error type. The Data layer throws <code>DataException</code> (network errors, parse failures, database conflicts). The Domain layer translates these into <code>DomainError</code> sealed classes that represent business-meaningful failures. The Presentation layer maps <code>DomainError</code> to user-visible messages.</p>
+  <p>This prevents UI code from containing network error string parsing — a pattern I have seen in too many production codebases.</p>
+
+  <h2>Results in Practice</h2>
+  <p>After migrating our team's primary app to this structure, we measured:</p>
+  <ul>
+    <li>25% reduction in critical bugs — most bugs were previously caused by tangled data/presentation logic</li>
+    <li>New feature development velocity increased as developers could work on layers independently</li>
+    <li>Unit test coverage for business logic jumped from 15% to 68% — pure Kotlin domain layers are trivial to test</li>
+    <li>Onboarding time for new team members dropped because the architecture made the codebase predictable</li>
+  </ul>
+
+  <h2>When Not to Use It</h2>
+  <p>Clean Architecture is not a universal answer. For a simple CRUD app with three screens and no complex business logic, it is genuine over-engineering. Use it when your app has business rules that exist independently of the UI, when multiple data sources need coordination, or when your team is larger than two developers.</p>
+
+  <div class="tag-row">
+    <span class="tag">MVVM</span><span class="tag">Use Cases</span><span class="tag">Repository Pattern</span>
+    <span class="tag">Dependency Injection</span><span class="tag">Dagger-Hilt</span><span class="tag">Kotlin</span>
+  </div>
+</article>
+
+<div class="related-section">
+  <h3 class="related-title">Related Posts</h3>
+  <div class="related-grid">
+    <a href="../cold-start-optimization/" class="related-card"><span class="related-card-badge">Performance</span><h4>The Cold Start Optimization Playbook</h4></a>
+    <a href="../jetpack-compose-migration/" class="related-card"><span class="related-card-badge">Compose</span><h4>Migrating to Jetpack Compose Incrementally</h4></a>
+  </div>
+</div>
+</body>
+</html>

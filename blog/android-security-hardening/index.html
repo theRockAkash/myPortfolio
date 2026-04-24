@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hardening Android Apps Against Fraud | Akash Verma</title>
+<meta name="description" content="Multi-layered security for FinTech apps: root detection, VPN blocking, emulator detection, certificate pinning, and runtime integrity checks.">
+<meta name="author" content="Akash Verma"><link rel="canonical" href="https://akashverma.dev/blog/android-security-hardening/">
+<meta property="og:title" content="Hardening Android Apps Against Fraud | Akash Verma"><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css"></head>
+<body class="android-dark"><script src="../../js/shared.js"></script><script>injectNav('blog');</script>
+<header class="page-hero"><div class="page-hero-inner">
+<div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>Security</span></div>
+<span class="page-hero-badge">Security</span>
+<h1>Hardening Android Apps Against Fraud</h1>
+<p class="page-hero-desc">Implementing multi-layered security for FinTech apps: root detection, VPN blocking, emulator detection, certificate pinning, and runtime integrity checks that reduced fraud incidents by 35%.</p>
+<div class="page-hero-meta"><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 10 min read</span></div>
+</div></header>
+
+<article class="article-wrap">
+  <h2>The Threat Landscape for Mobile FinTech</h2>
+  <p>Mobile FinTech apps are high-value targets. Unlike web applications where you control the server environment, Android apps run on devices you do not own, on operating systems that may be modified, over networks you cannot trust. The attack surface is vast: reverse engineering, man-in-the-middle attacks, rooted devices running hooking frameworks, and automated bots exploiting API endpoints.</p>
+  <p>After auditing our FinTech platform's security posture, I identified five critical threat vectors that needed addressing.</p>
+
+  <h2>Layer 1: Device Integrity</h2>
+  <h3>Root Detection</h3>
+  <p>Rooted devices can bypass app-level security controls, intercept encrypted traffic, and modify runtime behavior. I implemented multi-signal root detection that checks for common indicators: presence of <code>su</code> binary, Magisk mount points, busybox installations, and test-keys in the build fingerprint. Using Google's Play Integrity API (successor to SafetyNet) provides server-verified device attestation that is significantly harder to spoof than client-side checks alone.</p>
+
+  <h3>Emulator and Debugger Detection</h3>
+  <p>Fraud operations frequently use emulators to automate attacks at scale. I implemented detection for known emulator fingerprints (build properties, hardware characteristics, sensor availability) combined with timing-based detection that identifies virtualized hardware by measuring instruction execution timing anomalies. Debugger detection uses <code>Debug.isDebuggerConnected()</code> combined with PTRACE self-attachment checks.</p>
+
+  <h2>Layer 2: Network Security</h2>
+  <h3>Certificate Pinning</h3>
+  <p>Standard TLS validates that the server certificate was issued by a trusted CA. Certificate pinning goes further by validating that the certificate matches a specific public key hash embedded in the app. This prevents MITM attacks even if an attacker compromises a CA or installs a rogue certificate on the device.</p>
+  <p>The implementation uses OkHttp's <code>CertificatePinner</code> with backup pins and a rotation strategy. When pins need updating, a fallback mechanism allows controlled migration without bricking existing installations.</p>
+
+  <h3>VPN and Proxy Detection</h3>
+  <p>Financial transactions from anonymized network paths are a strong fraud signal. I implemented VPN detection by checking active network capabilities for <code>NET_CAPABILITY_NOT_VPN</code> and proxy detection by inspecting system proxy settings. Rather than hard-blocking VPN users (which would affect legitimate privacy-conscious users), the system escalates to additional verification steps.</p>
+
+  <h2>Layer 3: Data Protection</h2>
+  <p>All sensitive data stored locally — tokens, session identifiers, transaction receipts — is encrypted using AES-256-GCM with keys stored in Android Keystore. The Keystore provides hardware-backed key protection on supported devices, meaning the encryption keys never exist in plain text in memory.</p>
+  <p>For particularly sensitive operations like biometric authentication data, I implemented a key invalidation strategy that automatically rotates encryption keys when security events are detected (new fingerprint enrolled, device lock disabled).</p>
+
+  <h2>Layer 4: Runtime Integrity</h2>
+  <p>Code obfuscation with R8 and custom ProGuard rules makes reverse engineering significantly more difficult. String encryption for API keys and sensitive constants prevents trivial extraction from the APK. Integrity checks verify that the app has not been repackaged by validating the signing certificate at runtime.</p>
+
+  <h2>Results</h2>
+  <p>After deploying the full security stack, fraud incidents dropped by 35% in the first quarter. More importantly, the layered approach meant that attackers who bypassed one defense layer were caught by subsequent layers, creating defense in depth rather than a single point of failure.</p>
+
+  <div class="tag-row"><span class="tag">Root Detection</span><span class="tag">SSL Pinning</span><span class="tag">Obfuscation</span><span class="tag">Integrity Checks</span><span class="tag">Play Integrity API</span><span class="tag">AES-256</span></div>
+</article>
+
+<div class="related-section"><h3 class="related-title">Related Posts</h3><div class="related-grid">
+<a href="../cold-start-optimization/" class="related-card"><span class="related-card-badge">Performance</span><h4>The Cold Start Optimization Playbook</h4></a>
+<a href="../flutter-vs-native/" class="related-card"><span class="related-card-badge">Flutter</span><h4>Flutter vs Native: When to Choose What</h4></a>
+</div></div>
+</body></html>

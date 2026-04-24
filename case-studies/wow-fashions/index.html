@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Wow Fashions — Conquering the GCC Market | Akash Verma</title>
+<meta name="description" content="Building a bilingual Arabic-English fashion e-commerce app that drove a 42% surge in daily active shoppers across Middle Eastern markets.">
+<meta name="author" content="Akash Verma">
+<link rel="canonical" href="https://akashverma.dev/case-studies/wow-fashions/">
+<meta property="og:title" content="Case Study: Wow Fashions GCC E-commerce | Akash Verma">
+<meta property="og:description" content="Localization-first engineering that drove 42% DAU growth in GCC markets.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css">
+</head>
+<body class="android-dark">
+
+<script src="../../js/shared.js"></script>
+<script>injectNav('case-studies');</script>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="../">Case Studies</a><span class="sep">/</span>
+      <span>Wow Fashions</span>
+    </div>
+    <span class="page-hero-badge">E-commerce</span>
+    <h1>Wow Fashions: Conquering the GCC Market</h1>
+    <p class="page-hero-desc">Building a bilingual Arabic-English fashion e-commerce experience that drove a 42% surge in daily active shoppers across Middle Eastern markets through localization-first engineering.</p>
+    <div class="page-hero-meta">
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Android / Kotlin</span>
+      <span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 7 min read</span>
+    </div>
+  </div>
+</header>
+
+<article class="article-wrap">
+  <div class="metrics-row">
+    <div class="metric"><span class="metric-val">+42%</span><span class="metric-key">DAU Growth</span></div>
+    <div class="metric"><span class="metric-val">RTL</span><span class="metric-key">Full RTL Support</span></div>
+    <div class="metric"><span class="metric-val">2x</span><span class="metric-key">Search Speed</span></div>
+    <div class="metric"><span class="metric-val">GCC</span><span class="metric-key">Target Market</span></div>
+  </div>
+
+  <h2>The Challenge</h2>
+  <p>Wow Fashions aimed to capture the growing fashion e-commerce market in the Gulf Cooperation Council (GCC) region — UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman. The challenge went far beyond simple translation. Arabic-speaking users expect a fully native experience: right-to-left layouts, culturally appropriate navigation patterns, local payment methods, and product discovery flows that feel natural in their language.</p>
+  <p>The existing app was built with an English-first mindset, with RTL support bolted on as an afterthought. This resulted in broken layouts, misaligned text, and a search experience that performed poorly with Arabic queries. User retention in GCC markets was significantly lower than in English-speaking regions.</p>
+
+  <h2>The Approach</h2>
+
+  <h3>Localization-First Architecture</h3>
+  <p>Rather than retrofitting RTL support, I rebuilt the layout system from the ground up using a bidirectional-first approach. Every component was designed to be direction-agnostic: using <code>start</code> and <code>end</code> instead of <code>left</code> and <code>right</code>, and leveraging Android's built-in <code>layoutDirection</code> API for dynamic switching.</p>
+  <p>The language switching mechanism was designed to be instant — no app restart required. I implemented a custom <code>LocaleManager</code> that intercepts the Activity context, applies the correct locale configuration, and triggers a smooth layout transition animation rather than a jarring rebuild.</p>
+
+  <h3>Product Discovery Optimization</h3>
+  <p>Arabic search presented unique challenges. Arabic script has contextual letter forms, diacritics that users often omit, and word roots that don't map cleanly to substring matching. I implemented a search pipeline that:</p>
+  <ul>
+    <li>Normalized Arabic text by stripping diacritics (tashkeel) and standardizing letter variants (e.g., treating alef variations as equivalent)</li>
+    <li>Used root-based stemming for Arabic product names to improve recall</li>
+    <li>Implemented predictive filtering that updated results as users typed, with debounced API calls to minimize network usage</li>
+    <li>Added visual search suggestions using product thumbnail previews alongside text results</li>
+  </ul>
+
+  <h3>Regional Payment Integration</h3>
+  <p>GCC markets have strong preferences for specific payment methods that differ from Western markets. I integrated region-aware payment flows supporting Mada (Saudi debit), Knet (Kuwait), and Cash on Delivery alongside standard card payments. The gateway selection was automatic based on the user's detected country, with manual override available.</p>
+
+  <h2>Results</h2>
+  <ul>
+    <li>Daily active shoppers in GCC markets increased by 42% within three months of the relaunch</li>
+    <li>Product search speed doubled through the optimized Arabic search pipeline</li>
+    <li>User session duration increased by 28%, indicating better engagement with the RTL-native experience</li>
+    <li>Cart abandonment rate dropped by 18% after implementing region-specific payment methods</li>
+    <li>App store rating in GCC regions improved from 3.8 to 4.5 stars</li>
+  </ul>
+
+  <h2>Key Learnings</h2>
+  <p>Localization is not translation. Building for the GCC market taught me that true localization means rethinking user flows, not just mirroring layouts. Arabic users scan pages differently, have different expectations for navigation hierarchy, and interact with product grids in patterns that LTR-first designs fail to accommodate.</p>
+  <p>The biggest technical insight was that RTL support needs to be a first-class architectural decision, not a CSS property toggle. When the layout system is direction-agnostic from day one, supporting multiple locales becomes trivial rather than a constant source of visual bugs.</p>
+
+  <div class="tag-row">
+    <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span>
+    <span class="tag">RTL</span><span class="tag">Localization</span><span class="tag">Firebase</span>
+    <span class="tag">Arabic NLP</span><span class="tag">E-commerce</span>
+  </div>
+</article>
+
+<div class="related-section">
+  <h3 class="related-title">More Case Studies</h3>
+  <div class="related-grid">
+    <a href="../billnest/" class="related-card">
+      <span class="related-card-badge">FinTech</span>
+      <h4>Scaling BillNest to High-Volume Transactions</h4>
+    </a>
+    <a href="../performance-optimization/" class="related-card">
+      <span class="related-card-badge">Performance</span>
+      <h4>40% Bundle Reduction Across 15+ Apps</h4>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

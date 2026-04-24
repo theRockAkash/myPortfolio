@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Flutter vs Native: When to Choose What | Akash Verma</title>
+<meta name="description" content="After building apps in both ecosystems, an honest take on when Flutter wins, when native Android is better, and hybrid patterns that get the best of both.">
+<meta name="author" content="Akash Verma"><link rel="canonical" href="https://akashverma.dev/blog/flutter-vs-native/">
+<meta property="og:title" content="Flutter vs Native: When to Choose What | Akash Verma"><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/shared.css"></head>
+<body class="android-dark"><script src="../../js/shared.js"></script><script>injectNav('blog');</script>
+<header class="page-hero"><div class="page-hero-inner">
+<div class="page-breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="../">Blog</a><span class="sep">/</span><span>Flutter vs Native</span></div>
+<span class="page-hero-badge">Flutter</span>
+<h1>Flutter vs Native: When to Choose What</h1>
+<p class="page-hero-desc">After building apps in both ecosystems, here is my honest take on when Flutter wins, when native Android is the better choice, and the hybrid patterns that get the best of both worlds.</p>
+<div class="page-hero-meta"><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span><span class="page-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 7 min read</span></div>
+</div></header>
+
+<article class="article-wrap">
+  <h2>The False Binary</h2>
+  <p>The "Flutter vs Native" debate is usually framed as a binary choice. In practice, the decision depends on a matrix of factors: team composition, timeline, app complexity, platform-specific requirements, and long-term maintenance strategy. Having shipped production apps with both, I have found that neither is universally better.</p>
+
+  <h2>When Flutter Wins</h2>
+  <h3>Consistent UI Across Platforms</h3>
+  <p>If pixel-perfect design consistency between Android and iOS is a hard requirement, Flutter's rendering engine delivers this by default. Unlike React Native which bridges to native widgets (leading to subtle platform differences), Flutter draws every pixel itself. This makes it ideal for brand-heavy consumer apps where visual identity cannot diverge across platforms.</p>
+
+  <h3>Small to Medium Teams</h3>
+  <p>A team of 3-4 developers maintaining two native codebases is a recipe for feature parity drift. The same team maintaining a single Flutter codebase ships features to both platforms simultaneously. For startups and small teams, the velocity advantage is real and significant.</p>
+
+  <h3>Rapid Prototyping</h3>
+  <p>Flutter's hot reload and widget composition model make it exceptionally fast for prototyping. I have built functional MVPs in Flutter in half the time it would take with native Android, and those MVPs run on both platforms. For products in the validation phase, this speed matters more than raw performance.</p>
+
+  <h2>When Native Android Wins</h2>
+  <h3>Deep Platform Integration</h3>
+  <p>Apps that heavily use platform-specific APIs — background services, foreground notifications, accessibility services, custom system UI components, NFC, biometric APIs with hardware-backed keystore — are significantly easier to build natively. Flutter's platform channels work, but they add a layer of serialization overhead and debugging complexity that compounds with each integration point.</p>
+
+  <h3>Performance-Critical Applications</h3>
+  <p>Real-time video processing, complex animation choreography, gaming, and AR applications benefit from direct access to GPU APIs and platform-optimized libraries. Flutter's Skia/Impeller rendering engine is excellent for standard UI, but it adds overhead compared to native rendering for edge-case performance requirements.</p>
+
+  <h3>Existing Native Codebase</h3>
+  <p>If you have a mature native Android app with years of accumulated business logic, migrating to Flutter means rewriting that logic in Dart. The migration cost is rarely justified unless the app needs a ground-up redesign. Incremental adoption through add-to-app is possible but introduces build system complexity.</p>
+
+  <h2>The Hybrid Approach</h2>
+  <p>In practice, I often recommend a hybrid strategy. The core app shell and platform-specific integrations remain native. Shared UI modules — especially ones that need to be identical across platforms — are built with Flutter and embedded via platform views. This gives you the reliability of native for critical paths and the velocity of Flutter for shared screens.</p>
+  <p>The key is to keep the boundary clean: Flutter modules should be self-contained features with well-defined platform channel interfaces, not tightly coupled to native navigation or state management.</p>
+
+  <h2>My Decision Framework</h2>
+  <p>When consulting with teams, I use this simplified decision tree:</p>
+  <ul>
+    <li>Single platform only (Android) with deep system integration? Native.</li>
+    <li>Two platforms, UI-heavy, small team, tight deadline? Flutter.</li>
+    <li>Two platforms, complex platform APIs needed? Native with shared business logic layer.</li>
+    <li>Existing native app needing new cross-platform features? Flutter add-to-app for new modules.</li>
+  </ul>
+
+  <div class="tag-row"><span class="tag">Platform Channels</span><span class="tag">Code Sharing</span><span class="tag">Performance</span><span class="tag">Team Size</span><span class="tag">Flutter</span><span class="tag">Kotlin</span></div>
+</article>
+
+<div class="related-section"><h3 class="related-title">Related Posts</h3><div class="related-grid">
+<a href="../jetpack-compose-migration/" class="related-card"><span class="related-card-badge">Compose</span><h4>Migrating to Jetpack Compose Incrementally</h4></a>
+<a href="../on-device-ml-tensorflow/" class="related-card"><span class="related-card-badge">AI/ML</span><h4>On-Device ML with TensorFlow Lite</h4></a>
+</div></div>
+</body></html>
